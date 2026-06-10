@@ -24,7 +24,7 @@
     <link href="css/custom.css?v=15" rel="stylesheet"/>
 
 </head>
-<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<body class="bg-background text-on-background font-body-md overflow-x-hidden nav-always-scrolled">
     <!-- TopNavBar -->
     <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
         <nav class="flex justify-between items-center px-margin-desktop py-6 w-full">
@@ -50,13 +50,24 @@
         </nav>
     </header>
     <main>
-        <!-- Hero Section -->
-        <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img class="w-full h-full object-cover" src="mock aman images /imageye___-_imgi_296_22-11-Amanbagh-Experience-Bhangarh-Yoga-1999.jpg" alt="Culinary Hero"/>
-                <div class="absolute inset-0 bg-black/30"></div>
+        <!-- Hero Section — nav loads white automatically; video sits inset with padding on all sides -->
+        <section class="w-full bg-surface" style="padding:128px clamp(16px,4vw,40px) clamp(16px,4vw,40px) clamp(16px,4vw,40px);">
+
+            <div class="relative w-full overflow-hidden" style="height:calc(100vh - 152px); border-radius:0;">
+                <!-- Background Video -->
+                <video
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                    class="absolute inset-0 w-full h-full object-cover">
+
+                    <source src="./public/videos/stay-01.mp4" type="video/mp4">
+
+                </video>
             </div>
-            <div class="relative z-10"></div>
+
         </section>
         <!-- Intro Section -->
         <section class="py-16 md:py-24 bg-surface">
