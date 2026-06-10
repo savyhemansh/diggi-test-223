@@ -195,14 +195,14 @@ header#top-nav .nav-logo-secondary {
     color: rgba(255,255,255,0.6);
 }
 header#top-nav .nav-btn {
-    color: white;
-    border-color: rgba(255,255,255,0.7);
-    background-color: rgba(0,0,0,0.22);
+    color: #705b3c;
+    border-color: #705b3c;
+    background-color: transparent;
 }
 header#top-nav:not(.scrolled) .nav-btn:hover {
-    background-color: #ffffff;
-    color: #1a1a1a;
-    border-color: #ffffff;
+    background-color: #705b3c;
+    color: #ffffff;
+    border-color: #705b3c;
 }
 
 /* Scrolled state & Always scrolled state for light-header pages */
