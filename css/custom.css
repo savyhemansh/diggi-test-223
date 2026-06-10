@@ -196,7 +196,13 @@ header#top-nav .nav-logo-secondary {
 }
 header#top-nav .nav-btn {
     color: white;
-    border-color: rgba(255,255,255,0.6);
+    border-color: rgba(255,255,255,0.7);
+    background-color: rgba(0,0,0,0.22);
+}
+header#top-nav:not(.scrolled) .nav-btn:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border-color: #ffffff;
 }
 
 /* Scrolled state & Always scrolled state for light-header pages */
