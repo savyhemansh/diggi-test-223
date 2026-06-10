@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Signature Events | Diggi Palace — Heritage Hotel in Jaipur</title>
+<meta name="description" content="Host your event at Diggi Palace — heritage venues for conferences, literary festivals, exhibitions &amp; cultural gatherings in the heart of Jaipur, near Railway Station.">
+<link rel="canonical" href="https://www.hoteldiggipalace.com/events.html">
+<meta property="og:title" content="Signature Events | Diggi Palace — Heritage Hotel in Jaipur">
+<meta property="og:description" content="Host your event at Diggi Palace — heritage venues for conferences, literary festivals, exhibitions &amp; cultural gatherings in the heart of Jaipur, near Railway Station.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.hoteldiggipalace.com/events.html">
+<meta property="og:image" content="./public/images/homepage/homepage1.png">
+<meta property="og:site_name" content="Diggi Palace">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Signature Events | Diggi Palace — Heritage Hotel in Jaipur">
+<meta name="twitter:description" content="Host your event at Diggi Palace — heritage venues for conferences, literary festivals, exhibitions &amp; cultural gatherings in the heart of Jaipur, near Railway Station.">
+<meta name="twitter:image" content="./public/images/homepage/homepage1.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="theme-color" content="#705b3c">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="dist/tailwind.css?v=1" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .event-tile:hover img {
+            transform: scale(1.05);
+        }
+        .modal-backdrop {
+            background-color: rgba(26, 28, 26, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        
+        .event-list-item {
+            border-top: 1px solid #d0c5b8;
+            transition: all 0.3s ease;
+        }
+        .event-list-item:last-of-type {
+            border-bottom: 1px solid #d0c5b8;
+        }
+        .event-list-item:hover {
+            background-color: #f4f3f0;
+        }
+
+        /* Carousel Styles - Re-engineered for Cinematic Spotlight and Looping */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 650px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #faf9f6; /* Brand-aligned light background */
+        }
+        .carousel-track {
+            display: flex;
+            position: absolute;
+            left: 0;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            gap: 48px;
+            will-change: transform;
+        }
+        .carousel-card {
+            flex: 0 0 auto;
+            width: 420px;
+            opacity: 0.3;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            position: relative;
+        }
+        .carousel-card.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 10;
+        }
+        .carousel-overlay-left, .carousel-overlay-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 25%;
+            z-index: 20;
+            pointer-events: none;
+        }
+        .carousel-overlay-left {
+            left: 0;
+            background: linear-gradient(to right, #faf9f6 0%, transparent 100%);
+        }
+        .carousel-overlay-right {
+            right: 0;
+            background: linear-gradient(to left, #faf9f6 0%, transparent 100%);
+        }
+        .carousel-card .image-wrapper {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        .carousel-card .content-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(250, 249, 246, 0.95) 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 32px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .carousel-card.active .content-overlay {
+            opacity: 1;
+        }
+    </style>
+    <link href="css/custom.css?v=13" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
+<nav class="flex justify-between items-center px-margin-desktop py-6 w-full">
+<!-- Left: Menu -->
+<div class="flex-1 flex items-center">
+<button id="menu-trigger" class="flex items-center gap-3 text-white nav-link hover:opacity-70">
+<span class="material-symbols-outlined text-xl font-light nav-icon">menu</span>
+<span class="font-label-caps tracking-[0.2em] uppercase text-[11px]">Menu</span>
+</button>
+</div>
+<!-- Center: Logo -->
+<div class="flex-shrink-0 text-center">
+<a class="block" href="index.html">
+<span class="font-display-lg text-[19px] text-white nav-logo-primary tracking-[0.16em] block uppercase">Diggi Palace</span>
+<span class="font-label-caps text-[9px] tracking-[0.16em] text-white/60 nav-logo-secondary uppercase">Jaipur, Rajasthan</span>
+</a>
+</div>
+<!-- Right: Actions -->
+<div class="flex-1 flex justify-end items-center gap-8">
+<a class="hidden md:flex items-center gap-2 text-white/80 nav-link hover:text-white transition-all duration-300" href="tel:+919352145034">
+<span class="material-symbols-outlined text-lg font-light nav-icon">call</span>
+<span class="font-label-caps tracking-widest text-[11px]">+91 93521-45034</span>
+</a>
+<button class="border border-white/60 text-white nav-btn px-8 py-3 font-label-caps hover:bg-white hover:text-black transition-all tracking-[0.2em] uppercase text-[11px]" onclick="window.location.href='mockreservation.html'">BOOK NOW</button>
+</div>
+</nav>
+</header>
+<header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+<img alt="Signature Event Hero" class="absolute inset-0 w-full h-full object-cover scale-105" src="mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg"/>
+<div class="absolute inset-0 bg-black/30 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+<div class="relative z-10 text-center px-4 max-w-4xl fade-in-up">
+<span class="font-label-caps text-label-caps text-primary-fixed tracking-[0.16em] mb-6 block uppercase">Signature Traditions</span>
+<h1 class="font-display-lg text-display-lg text-white mb-8 leading-tight">Vibrant Legacies</h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-2xl mx-auto font-light tracking-wide">
+            Holi at Diggi Palace — An international tradition where the heritage of Rajasthan meets a kaleidoscope of global joy.
+        </p>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 text-white/70">
+<span class="font-label-caps text-[10px] tracking-[0.16em] uppercase">Scroll to Explore</span>
+<div class="w-px h-16 bg-gradient-to-b from-white/70 to-transparent"></div>
+</div>
+</header>
+<main class="relative">
+<section class="py-16 md:py-24 px-margin-desktop max-w-max-width mx-auto" id="gala-events">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">The Cultural Heart of the Pink City</h2>
+<div class="w-16 h-px bg-primary mx-auto"></div>
+</div>
+<div class="max-w-4xl mx-auto">
+<div class="event-list-item flex justify-between items-center px-4 py-16">
+<h3 class="text-on-surface font-headline-lg">Holi <span class="font-label-caps text-[10px] ml-4 text-primary tracking-widest uppercase align-middle">Flagship Event</span></h3>
+<button class="font-label-caps text-primary tracking-widest border-b border-transparent hover:border-primary transition-all text-body-md" onclick="openEventModal('holi')">DISCOVER MORE</button>
+</div>
+<div class="event-list-item flex justify-between items-center px-4 py-16">
+<h3 class="text-on-surface font-headline-lg">Jaipur Literature Festival</h3>
+<button class="font-label-caps text-primary tracking-widest border-b border-transparent hover:border-primary transition-all text-body-md" onclick="openEventModal('jlf')">DISCOVER MORE</button>
+</div>
+<div class="event-list-item flex justify-between items-center px-4 py-16">
+<h3 class="text-on-surface font-headline-lg">Rajasthan Heritage Week</h3>
+<button class="font-label-caps text-primary tracking-widest border-b border-transparent hover:border-primary transition-all text-body-md" onclick="openEventModal('heritage')">DISCOVER MORE</button>
+</div>
+<div class="event-list-item flex justify-between items-center px-4 py-16">
+<h3 class="text-on-surface font-headline-lg">Fashion Design Council Of India Showcases</h3>
+<button class="font-label-caps text-primary tracking-widest border-b border-transparent hover:border-primary transition-all text-body-md" onclick="openEventModal('fdci')">DISCOVER MORE</button>
+</div>
+<div class="event-list-item flex justify-between items-center px-4 py-16">
+<h3 class="text-on-surface font-headline-lg">Diwali</h3>
+<button class="font-label-caps text-primary tracking-widest border-b border-transparent hover:border-primary transition-all text-body-md" onclick="openEventModal('diwali')">DISCOVER MORE</button>
+</div>
+<div class="event-list-item flex justify-between items-center px-4 py-16">
+<h3 class="text-on-surface font-headline-lg">New Year's Eve</h3>
+<button class="font-label-caps text-primary tracking-widest border-b border-transparent hover:border-primary transition-all text-body-md" onclick="openEventModal('newyear')">DISCOVER MORE</button>
+</div>
+<div class="event-list-item flex justify-between items-center px-4 py-16">
+<h3 class="text-on-surface font-headline-lg">Grub Fest</h3>
+<button class="font-label-caps text-primary tracking-widest border-b border-transparent hover:border-primary transition-all text-body-md" onclick="openEventModal('grubfest')">DISCOVER MORE</button>
+</div>
+<div class="mt-12 text-center">
+<p class="font-body-md text-secondary/40 italic font-light">and many more...</p>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-low py-16 md:py-24 overflow-hidden">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<div class="relative grid md:grid-cols-2 gap-20 items-center">
+<div class="relative aspect-[4/5] overflow-hidden group">
+<img alt="Holi Gathering" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="mock aman images /imageye___-_imgi_168_Amanbagh-Experience-Bhangarh.jpg"/>
+<div class="absolute inset-0 border-[24px] border-surface-container-low/50"></div>
+</div>
+<div class="fade-in-on-scroll fade-in-up">
+<span class="font-label-caps text-label-caps text-primary tracking-widest mb-6 block">EXCLUSIVELY FOR OUR GUESTS</span>
+<h3 class="font-headline-lg text-headline-lg mb-8">The Festival of Colors</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                        Acclaimed as one of the most sophisticated Holi celebrations in India, our gathering is reserved exclusively for international residents and invited guests. A safe, vibrant, and traditional environment where organic pigments and folk rhythms define the day.
+                    </p>
+<button class="group flex items-center gap-4 font-label-caps text-label-caps text-primary">
+<span class="">VIEW THE GALLERY</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 px-margin-desktop max-w-max-width mx-auto relative">
+<div class="flex flex-col md:flex-row-reverse gap-20 items-center">
+<div class="w-full md:w-3/5 relative">
+<div class="absolute -top-12 -left-12 w-48 h-48 bg-primary/5 -z-10"></div>
+<img alt="JLF Atmosphere" class="w-full h-auto" src="mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg"/>
+</div>
+<div class="w-full md:w-2/5">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-8">Literary Sanctuaries</h3>
+<p class="font-label-caps text-label-caps text-secondary mb-10">THE JAIPUR LITERATURE FESTIVAL</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-12 leading-loose">
+                    For over 15 years, Diggi Palace served as the spiritual home of the "greatest literary show on Earth." Though the festival has expanded, the palace remains a central hub for exclusive satellite events, author retreats, and private salons during JLF week.
+                </p>
+<div class="p-8 border border-outline-variant bg-surface-container">
+<p class="font-body-md text-body-md italic text-primary">"The walls of Diggi have heard more stories than can ever be written."</p>
+</div>
+</div>
+</div>
+<!-- Architectural "Bob" Accent -->
+<div class="absolute -bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
+<div class="w-px h-48 bg-primary/30 relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary ring-4 ring-background"></div>
+</div>
+</div>
+</section>
+<!-- Couture & Craft Section: Heritage on the Runway -->
+<section class="bg-background pt-16 md:pt-24 pb-16 md:pb-24" style="overflow:hidden;">
+<div style="max-width:1280px; margin:0 auto; padding:0 24px;">
+<div class="flex flex-col items-center mb-8">
+<h3 class="font-headline-lg text-[24px] text-on-surface uppercase tracking-tight text-center leading-none mb-12">Heritage on the Runway</h3>
+<div style="width:100%; display:flex; flex-direction:row; justify-content:space-between; align-items:center; margin-bottom:48px; padding:0 16px; gap:24px;">
+<p class="font-body-md text-on-surface-variant" style="max-width:280px; line-height:1.8;">Each showcase at Diggi Palace is uniquely designed to evoke heritage couture.</p>
+<p class="font-label-caps text-on-surface-variant" style="font-size:12px; text-align:right; letter-spacing:0.2em; text-transform:uppercase;">Cinematic Venues,<br/>A Royal Sanctuary</p>
+</div>
+</div>
+</div>
+<!-- Interactive Carousel — full bleed, no max-width wrapper -->
+<div id="runway-carousel" style="position:relative; width:100%; height:650px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:#faf9f6;">
+<div style="position:absolute;top:0;bottom:0;left:0;width:20%;background:linear-gradient(to right,#faf9f6 0%,transparent 100%);z-index:20;pointer-events:none;"></div>
+<div style="position:absolute;top:0;bottom:0;right:0;width:20%;background:linear-gradient(to left,#faf9f6 0%,transparent 100%);z-index:20;pointer-events:none;"></div>
+<div id="carousel-track" style="display:flex; position:absolute; left:0; gap:48px; transition:transform 0.8s cubic-bezier(0.16,1,0.3,1); will-change:transform;">
+<!-- Cards injected via script -->
+</div>
+</div>
+<div style="max-width:1280px; margin:0 auto; padding:0 24px;">
+<div style="margin-top:64px; text-align:center;">
+<p class="font-body-md text-on-surface-variant" id="carousel-description" style="line-height:1.8; transition:opacity 0.5s ease; max-width:700px; margin:0 auto;">
+A haven of craftsmanship with hand-woven textiles, heritage-inspired silhouettes, and dramatic lighting that sets the tone for royal evenings.
+</p>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 px-margin-desktop w-full relative bg-cover bg-left" style="background-image: url('public/images/events/events-background.png');">
+<div class="absolute inset-0 bg-[#faf9f6]/60 z-0"></div>
+<div class="max-w-max-width mx-auto relative z-10">
+
+
+</section>
+</main>
+<footer class="bg-surface-container-low dark:bg-inverse-surface w-full py-12 md:py-20 px-margin-desktop text-center flex flex-col items-center justify-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8 tracking-widest">DIGGI PALACE</h2>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-6 mb-8">
+<a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors" href="#">CONCIERGE</a>
+<a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors" href="#">LOCATION</a>
+<a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors" href="#">HERITAGE</a>
+<a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors" href="#">CAREERS</a>
+<a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors" href="#">PRIVACY</a>
+</div>
+<div class="flex gap-8 mb-8">
+<a class="text-secondary hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-secondary hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-secondary hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+<p class="font-body-md text-body-md text-secondary opacity-80 tracking-widest uppercase">© 2024 DIGGI PALACE. ALL RIGHTS RESERVED.</p>
+</footer>
+<!-- Event Modal -->
+<div class="fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-12 hidden" id="eventModal">
+<div class="absolute inset-0 modal-backdrop" onclick="closeEventModal()"></div>
+<div class="relative bg-background max-w-5xl w-full max-h-[90vh] overflow-y-auto flex flex-col md:flex-row animate-in fade-in zoom-in duration-300">
+<button class="absolute top-6 right-6 z-20 material-symbols-outlined text-3xl text-on-surface-variant hover:text-primary transition-colors" onclick="closeEventModal()">close</button>
+<div class="w-full md:w-1/2 bg-surface-container">
+<img class="w-full h-full object-cover min-h-[300px]" id="modalImage" src=""/>
+</div>
+<div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8" id="modalTitle"></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed" id="modalDescription"></p>
+<div class="mt-12 pt-8 border-t border-outline-variant">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Exclusively at Diggi Palace</span>
+</div>
+</div>
+</div>
+</div>
+<script src="js/main.js?v=5"></script>
+<script>
+    const carouselItems = [
+        {
+            title: "FDCI Showcases",
+            desc: "The Fashion Design Council of India regularly chooses our courtyards for cinematic showcases that blend architecture with artistry, highlighting the crème de la crème of Indian couture.",
+            img: "public/images/homepage/1.png"
+        },
+        {
+            title: "Heritage Week",
+            desc: "A celebration of the handmade, bringing together master weavers and renowned designers to redefine Rajasthani textiles for a global stage under the desert sky.",
+            img: "public/images/homepage/3.png"
+        },
+        {
+            title: "India Couture",
+            desc: "Vibrant showcases where contemporary Indian luxury meets architectural grandeur. A festival of color, focus, and intricate craftsmanship in our historic palace gardens.",
+            img: "public/images/homepage/4.png"
+        }
+    ];
+
+    let track;
+    let descEl;
+    const cardWidth = 420;
+    const gap = 48;
+    const totalItems = carouselItems.length;
+    let activeIndex = 0;
+
+    function buildCarousel() {
+        if (!track) return;
+        track.innerHTML = '';
+        const clones = [...carouselItems, ...carouselItems, ...carouselItems, ...carouselItems, ...carouselItems];
+        clones.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.style.cssText = 'flex:0 0 auto;width:420px;opacity:0.3;transform:scale(0.8);transition:all 0.8s cubic-bezier(0.16,1,0.3,1);cursor:pointer;position:relative;';
+            card.dataset.idx = index;
+            card.onclick = () => setCarouselIndex(index);
+            card.innerHTML = `
+                <div style="position:relative;aspect-ratio:4/5;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);">
+                    <img alt="${item.title}" src="${item.img}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(0.2,0,0.2,1);"/>
+                    <div class="cov" style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(26,28,26,0.85) 100%);display:flex;align-items:flex-end;justify-content:space-between;padding:32px;opacity:0;transition:opacity 0.5s ease;">
+                        <span style="font-family:'Lora',Georgia,serif;font-size:20px;color:#faf9f6;font-weight:400;">${item.title}</span>
+                        <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#faf9f6;border-bottom:1px solid rgba(250,249,246,0.5);padding-bottom:2px;">VIEW DETAILS →</span>
+                    </div>
+                </div>
+            `;
+            track.appendChild(card);
+        });
+    }
+
+    function setCarouselIndex(index) {
+        if (!track || !descEl) {
+            return;
+        }
+        activeIndex = index;
+        const cards = Array.from(track.children);
+        const container = document.getElementById('runway-carousel');
+        if (!container) {
+            return;
+        }
+        const containerWidth = container.offsetWidth;
+        const offset = (containerWidth / 2) - (cardWidth / 2) - (index * (cardWidth + gap));
+        track.style.transform = `translateX(${offset}px)`;
+
+        cards.forEach((card, i) => {
+            const cov = card.querySelector('.cov');
+            if (i === index) {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+                card.style.zIndex = '10';
+                if (cov) cov.style.opacity = '1';
+            } else {
+                card.style.opacity = '0.3';
+                card.style.transform = 'scale(0.8)';
+                card.style.zIndex = '1';
+                if (cov) cov.style.opacity = '0';
+            }
+        });
+
+        const realIdx = index % totalItems;
+        descEl.style.opacity = '0';
+        setTimeout(() => {
+            descEl.innerText = carouselItems[realIdx].desc;
+            descEl.style.opacity = '1';
+        }, 300);
+
+        if (index < totalItems || index >= totalItems * 4) {
+            setTimeout(() => {
+                const centerIndex = (index % totalItems) + totalItems * 2;
+                track.style.transition = 'none';
+                activeIndex = centerIndex;
+                const offset2 = (container.offsetWidth / 2) - (cardWidth / 2) - (centerIndex * (cardWidth + gap));
+                track.style.transform = `translateX(${offset2}px)`;
+                Array.from(track.children).forEach((card, i) => {
+                    const cov = card.querySelector('.cov');
+                    if (i === centerIndex) {
+                        card.style.opacity='1'; card.style.transform='scale(1)'; card.style.zIndex='10';
+                        if(cov) cov.style.opacity='1';
+                    } else {
+                        card.style.opacity='0.3'; card.style.transform='scale(0.8)'; card.style.zIndex='1';
+                        if(cov) cov.style.opacity='0';
+                    }
+                });
+                setTimeout(() => { track.style.transition = 'transform 0.8s cubic-bezier(0.16,1,0.3,1)'; }, 50);
+            }, 800);
+        }
+    }
+
+    function initCarousel() {
+        track = document.getElementById('carousel-track');
+        descEl = document.getElementById('carousel-description');
+        if (!track || !descEl) return;
+        buildCarousel();
+        setTimeout(() => {
+            setCarouselIndex(totalItems * 2);
+        }, 150);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCarousel);
+    } else {
+        initCarousel();
+    }
+    window.addEventListener('resize', () => { if (track) setCarouselIndex(activeIndex); });
+
+    // Modal Logic
+    const events = {
+        holi: { title: "Holi: The Festival of Colors", description: "Our flagship event is internationally acclaimed, hosting global guests in a refined, safe, and deeply traditional celebration. Using only organic pigments and folk music.", image: "mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg" },
+        jlf: { title: "Jaipur Literature Festival", description: "The palace serves as the spiritual home of the literary world, hosting exclusive salons and private author retreats during JLF week.", image: "mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg" },
+        heritage: { title: "Rajasthan Heritage Week", description: "A cinematic showcase of handloom and couture bringing together master weavers and international designers under the stars.", image: "mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg" },
+        fdci: { title: "FDCI Showcases", description: "Major fashion spectacles that utilize our heritage courtyards as living stages for the country's leading couturiers.", image: "mock aman images /imageye___-_imgi_95_Amanbagh-Amansanti-Gardener_2.jpg" },
+        grubfest: { title: "Grub Fest", description: "A premier culinary journey bringing together gourmet delicacies, guest chefs, and artisan producers.", image: "mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg" },
+        diwali: { title: "Diwali Lights", description: "Experience the Festival of Lights in its truest royal form. Our gardens are transformed by thousands of traditional oil lamps.", image: "mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg" },
+        newyear: { title: "Imperial New Year's Eve", description: "A black-tie event featuring vintage glamour, fine dining, and orchestral performances in our grandest ballroom.", image: "mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg" }
+    };
+
+    function openEventModal(eventId) {
+        const event = events[eventId];
+        document.getElementById('modalTitle').innerText = event.title;
+        document.getElementById('modalDescription').innerText = event.description;
+        document.getElementById('modalImage').src = event.image;
+        document.getElementById('eventModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeEventModal() {
+        document.getElementById('eventModal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+                fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-on-scroll').forEach(el => fadeObserver.observe(el));
+</script>
+</body></html>

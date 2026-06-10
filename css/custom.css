@@ -1,0 +1,491 @@
+/* ============================================================
+   AMAN-SPEC TYPOGRAPHY
+   Serif (Lora ≈ Lyon Text) for headings + body copy.
+   Humanist sans (Inter ≈ WhitneySSm) for labels, nav, buttons.
+   Real weight at 400, smaller sizes, tight tracking.
+   ============================================================ */
+
+/* Body copy — serif, weight 400, dense line-height like Aman (1.45–1.55) */
+body {
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.012em;
+    color: #2b2926;
+}
+
+/* Headings — same serif, weight 400 (NOT light), near-zero tracking */
+h1, h2, h3, h4, h5, h6,
+.font-display-lg, .font-headline-lg, .font-headline-md {
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.005em;
+}
+/* Headings inherit color from their context (light sections = dark body color,
+   dark/image sections = the light text color set on their container). This avoids
+   forcing dark text onto headings that sit over dark hero imagery. */
+
+/* Pull quotes — italic serif */
+blockquote, .pull-quote {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.01em;
+}
+
+/* Labels, eyebrows, nav — Inter, restrained tracking (Aman ≈ 0.143em) */
+.font-label-caps,
+.overline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+.overline {
+    color: #6b6358;
+}
+
+/* Body paragraphs — serif, 400, dense */
+p, .font-body-md, .font-body-lg {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+/* Buttons — Inter, restrained tracking */
+button, .btn, a.cta {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Font helpers */
+.font-ornamental {
+    font-family: 'Lora', Georgia, serif;
+}
+.text-ornamental { 
+    letter-spacing: 0.2em; 
+}
+
+/* Scrollbar completely hidden */
+html, body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Scroll reveal initial states */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Accessibility: honour reduced-motion — neutralise reveals, parallax & zooms */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+    .img-hover-container:hover img { transform: none !important; }
+}
+
+/* Jali Grid Pattern */
+.jali-pattern {
+    background-image: radial-gradient(#705b3c 0.5px, transparent 0.5px);
+    background-size: 18px 18px;
+    opacity: 0.05;
+}
+
+/* Tactile Paper / Sandstone Texture — Suryagarh-style warm beige wall */
+.paper-texture {
+    background-color: #b8a784;
+    background-image: url("../public/images/texture.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Rajputana Arch Frame Clipping Path */
+.arch-frame {
+    clip-path: path("M 0 500 L 0 150 C 0 50 100 0 250 0 C 400 0 500 50 500 150 L 500 500 Z");
+    overflow: hidden;
+}
+
+/* Image zoom & hover containers */
+.img-hover-container {
+    overflow: hidden;
+}
+.img-hover-container img {
+    transition: none;
+}
+.img-hover-container:hover img {
+    transform: none;
+}
+
+/* Menu Hover Item Interactions */
+.menu-item-hover:hover .menu-dot {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Parallax image transitions */
+.image-reveal {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom global overrides */
+.nav-link, 
+.nav-icon, 
+.nav-logo-primary,
+.nav-logo-secondary,
+.nav-btn {
+    transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Generous, responsive horizontal margins (Aman/Suryagarh breathing room) */
+.px-margin-desktop {
+    padding-left: clamp(24px, 6vw, 80px) !important;
+    padding-right: clamp(24px, 6vw, 80px) !important;
+}
+
+/* Edge-to-edge feature images / heroes that break out of any container */
+.full-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+header#top-nav {
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* NAV — matches index.html exactly */
+
+/* Default state: white (over hero image) */
+header#top-nav .nav-link,
+header#top-nav .nav-icon {
+    color: white;
+}
+header#top-nav .nav-logo-primary {
+    color: white;
+}
+header#top-nav .nav-logo-secondary {
+    color: rgba(255,255,255,0.6);
+}
+header#top-nav .nav-btn {
+    color: white;
+    border-color: rgba(255,255,255,0.6);
+}
+
+/* Scrolled state & Always scrolled state for light-header pages */
+header#top-nav.scrolled,
+body.nav-always-scrolled header#top-nav {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid rgba(112, 91, 60, 0.15) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+header#top-nav.scrolled .nav-link,
+header#top-nav.scrolled .nav-icon,
+body.nav-always-scrolled header#top-nav .nav-link,
+body.nav-always-scrolled header#top-nav .nav-icon {
+    color: #705b3c !important;
+}
+header#top-nav.scrolled .nav-logo-primary,
+body.nav-always-scrolled header#top-nav .nav-logo-primary {
+    color: #705b3c !important;
+}
+header#top-nav.scrolled .nav-logo-secondary,
+body.nav-always-scrolled header#top-nav .nav-logo-secondary {
+    color: rgba(112, 91, 60, 0.7) !important;
+}
+header#top-nav.scrolled .nav-btn,
+body.nav-always-scrolled header#top-nav .nav-btn {
+    color: #705b3c !important;
+    border-color: #705b3c !important;
+}
+header#top-nav.scrolled .nav-btn:hover,
+body.nav-always-scrolled header#top-nav .nav-btn:hover {
+    background-color: #705b3c !important;
+    color: #ffffff !important;
+}
+
+/* Container width — expansive luxury, not a narrow column */
+.max-w-max-width {
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Material Icons properties override */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* =====================================
+   PINNED GALLERY: Suryagarh-style scroll-driven slide-up
+   ===================================== */
+
+#pinned-gallery {
+    position: relative;
+    background: #f0ece2;
+}
+
+#pinned-gallery .pinned-content {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Strip transitions — smooth slide, no bounce */
+#gallery-strip {
+    transition: transform 0.05s linear;
+    will-change: transform;
+}
+
+/* Left text transitions */
+#gallery-badge,
+#gallery-number,
+#gallery-title-left {
+    transition: opacity 300ms ease;
+}
+
+/* =====================================
+   AMAN-STYLE HORIZONTAL SCROLL GALLERY
+   Single row — varying image heights, horizontal scroll with snap
+   ===================================== */
+
+/* Wrapper — scrollbar hidden, no horizontal padding (track owns it) */
+.hs-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.hs-wrapper::-webkit-scrollbar {
+    display: none;
+    height: 0;
+}
+
+/* Horizontal flex track — ALL images centered on one axis, big Aman gaps */
+.hs-track {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(48px, 6vw, 96px);
+    width: max-content;
+    padding: 56px clamp(40px, 8vw, 120px);
+    position: relative;
+}
+
+/* Each image figure */
+.hs-item {
+    flex-shrink: 0;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    border-radius: 0;
+    width: auto;
+    min-width: 0;
+    cursor: pointer;
+}
+
+/* Portrait — tallest */
+.hs-item.tall {
+    height: clamp(220px, 36vh, 340px);
+    aspect-ratio: 4 / 5;
+}
+
+/* Square — medium */
+.hs-item.square {
+    height: clamp(180px, 28vh, 270px);
+    aspect-ratio: 1 / 1;
+}
+
+/* Wide landscape — shortest */
+.hs-item.short {
+    height: clamp(150px, 22vh, 220px);
+    aspect-ratio: 3 / 2;
+}
+
+.hs-item img {
+    height: 100%;
+    width: 100%;
+    max-width: none;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.8s ease;
+}
+
+/* Hover effects */
+.hs-item:hover img {
+    filter: brightness(1.05) contrast(1.02);
+}
+
+/* Subtle gradient overlay */
+.hs-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.06));
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+.hs-item:hover::after {
+    opacity: 0;
+}
+
+.hs-item.tall img {
+    object-position: center 30%;
+}
+
+/* Smooth snap scroll */
+@media (min-width: 1024px) {
+    .hs-wrapper {
+        scroll-snap-type: x mandatory;
+    }
+    .hs-item {
+        scroll-snap-align: center;
+    }
+}
+
+/* Responsive: smaller gaps on mobile */
+@media (max-width: 767px) {
+    .hs-track {
+        gap: 32px;
+        padding: 36px 32px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    #pinned-gallery {
+        height: auto !important;
+    }
+    #pinned-gallery .pinned-content {
+        position: relative !important;
+        height: auto !important;
+        flex-direction: column !important;
+        min-height: 100vh;
+    }
+    #pinned-gallery .pinned-content > div:first-child {
+        width: 100% !important;
+        padding: 80px 32px 40px !important;
+        height: auto !important;
+    }
+    #gallery-right {
+        width: 100% !important;
+        height: 70vh !important;
+    }
+    #gallery-strip {
+        transform: translateY(0) !important;
+    }
+}
+
+/* =====================================
+   COPY TOOLTIP (contact page)
+   ===================================== */
+.copy-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.copy-trigger:active + .copy-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* =====================================
+   INTL-TEL-INPUT CUSTOM STYLES (contact page)
+   ===================================== */
+.iti { width: 100%; }
+.iti__country-list {
+    background-color: #faf9f6;
+    border: 1px solid #d0c5b8;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+.iti__selected-flag {
+    background-color: transparent !important;
+    border-bottom: 1px solid #d0c5b8;
+}
+
+/* =====================================
+   CUSTOM COUNTRY SELECTOR (contact page)
+   ===================================== */
+.country-selector-container {
+    position: relative;
+    width: 100%;
+}
+.country-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #faf9f6;
+    border: 1px solid #d0c5b8;
+    z-index: 50;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.country-option {
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s;
+}
+.country-option:hover {
+    background: #f4f3f0;
+    color: #705b3c;
+}
+.country-option span:first-child {
+    font-size: 20px;
+}
+.search-container {
+    position: sticky;
+    top: 0;
+    background: #faf9f6;
+    padding: 8px;
+    border-bottom: 1px solid #d0c5b8;
+}
+.search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d0c5b8;
+    background: white;
+    font-size: 13px;
+}

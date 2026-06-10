@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.aman.com)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -sL -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36\" \"https://www.aman.com/resorts/amanbagh\" -o aman.html)",
+      "Bash(curl -sL \"https://www.aman.com/sites/default/files/css/css_hvnsdzLzEff4EBOE-HSRJuIvhGW24S75q0iHzGIFoKw.css?delta=0\" -o aman1.css)",
+      "Bash(curl -sL \"https://www.aman.com/sites/default/files/css/css_TzbcQIleX2uTxZwsf9tP7w5egTiEuqAH72tkSB8dAl8.css?delta=2\" -o aman2.css)",
+      "Bash(curl -sL \"https://www.aman.com/sites/default/files/css/css_U_lz8Aj8S9b7zg6gcy8t_r102BScX52DOW8jf20ViPs.css?delta=3\" -o aman3.css)",
+      "Bash(grep -oE \"[^{]{0,80}\\\\{[^}]*font-size:[1-9][0-9]*[^}]*\\\\}\" aman3.css)",
+      "Bash(grep -oE '\\(\\\\.h[1-6]|h[1-6]\\)[^,{}]*\\\\{[^}]{0,300}\\\\}' aman3.css)",
+      "Bash(grep -oE '\\\\.subtitle[^,{}]*\\\\{[^}]{0,300}\\\\}' aman3.css)",
+      "Bash(grep -oE 'body\\\\s*\\\\{[^}]{0,300}\\\\}' aman3.css)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx --version)",
+      "Bash(mv \"imageye___-_imgi_79_Amanbagh%2C India - Main Building%2C Exterior with Amansanti \\(1\\).jpg\" \"imgi_79_exterior-amansanti.jpg\")",
+      "Bash(mv \"imageye___-_imgi_107_Amanbagh%2C India - Accommodation%2C Pool Pavillion Exterior 2.jpg\" \"imgi_107_pool-pavilion.jpg\")",
+      "Bash(mv \"imageye___-_imgi_252_Amanbagh%2C India - Main Building%2C Exterior Detail_0.jpg\" \"imgi_252_exterior-detail.jpg\")",
+      "Bash(mv \"imageye___-_imgi_268_Amanbagh%2C India -Food-Beverages - Detail.jpg\" \"imgi_268_food-beverages.jpg\")"
+    ]
+  }
+}
