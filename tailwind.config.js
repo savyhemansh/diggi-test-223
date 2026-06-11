@@ -75,12 +75,12 @@ module.exports = {
         "margin-mobile": "20px"
       },
       fontFamily: {
-        "display-lg": ["Tiempos Text", "Georgia", "serif"],
-        "headline-lg": ["Tiempos Text", "Georgia", "serif"],
-        "headline-md": ["Tiempos Text", "Georgia", "serif"],
-        "headline-lg-mobile": ["Tiempos Text", "Georgia", "serif"],
-        "body-lg": ["Tiempos Text", "Georgia", "serif"],
-        "body-md": ["Tiempos Text", "Georgia", "serif"],
+        "display-lg": ["Didot", "Georgia", "serif"],
+        "headline-lg": ["Didot", "Georgia", "serif"],
+        "headline-md": ["Didot", "Georgia", "serif"],
+        "headline-lg-mobile": ["Didot", "Georgia", "serif"],
+        "body-lg": ["Fraunces", "Georgia", "serif"],
+        "body-md": ["Fraunces", "Georgia", "serif"],
         "label-caps": ["Inter", "sans-serif"]
       },
       fontSize: {
