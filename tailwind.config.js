@@ -75,12 +75,12 @@ module.exports = {
         "margin-mobile": "20px"
       },
       fontFamily: {
-        "display-lg": ["Lora", "Georgia", "serif"],
-        "headline-lg": ["Lora", "Georgia", "serif"],
-        "headline-md": ["Lora", "Georgia", "serif"],
-        "headline-lg-mobile": ["Lora", "Georgia", "serif"],
-        "body-lg": ["Lora", "Georgia", "serif"],
-        "body-md": ["Lora", "Georgia", "serif"],
+        "display-lg": ["Didot", "Georgia", "serif"],
+        "headline-lg": ["Didot", "Georgia", "serif"],
+        "headline-md": ["Didot", "Georgia", "serif"],
+        "headline-lg-mobile": ["Didot", "Georgia", "serif"],
+        "body-lg": ["Fraunces", "Georgia", "serif"],
+        "body-md": ["Fraunces", "Georgia", "serif"],
         "label-caps": ["Inter", "sans-serif"]
       },
       fontSize: {
