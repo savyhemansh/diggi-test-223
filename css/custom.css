@@ -1,13 +1,71 @@
 /* ============================================================
    AMAN-SPEC TYPOGRAPHY
-   Serif (Lora ≈ Lyon Text) for headings + body copy.
+   Serif (Tiempos Text) for headings + body copy.
    Humanist sans (Inter ≈ WhitneySSm) for labels, nav, buttons.
    Real weight at 400, smaller sizes, tight tracking.
    ============================================================ */
 
+/* Tiempos Text — self-hosted serif (replaces Lora) */
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('../fonts/tiempos-font-family/TestTiemposText-Regular-BF66457a50cd521.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('../fonts/tiempos-font-family/TestTiemposText-RegularItalic-BF66457a50421c2.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('../fonts/tiempos-font-family/TestTiemposText-Medium-BF66457a508489a.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('../fonts/tiempos-font-family/TestTiemposText-MediumItalic-BF66457a508d6d9.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('../fonts/tiempos-font-family/TestTiemposText-Semibold-BF66457a4fed201.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('../fonts/tiempos-font-family/TestTiemposText-SemiboldItalic-BF66457a505477c.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('../fonts/tiempos-font-family/TestTiemposText-Bold-BF66457a4f03c40.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('../fonts/tiempos-font-family/TestTiemposText-BoldItalic-BF66457a50155b4.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
 /* Body copy — serif, weight 400, dense line-height like Aman (1.45–1.55) */
 body {
-    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    font-family: 'Tiempos Text', Georgia, 'Times New Roman', serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.7;
@@ -20,7 +78,7 @@ body {
 /* Headings — same serif, weight 400 (NOT light), near-zero tracking */
 h1, h2, h3, h4, h5, h6,
 .font-display-lg, .font-headline-lg, .font-headline-md {
-    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    font-family: 'Tiempos Text', Georgia, 'Times New Roman', serif;
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.005em;
@@ -31,7 +89,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Pull quotes — italic serif */
 blockquote, .pull-quote {
-    font-family: 'Lora', Georgia, serif;
+    font-family: 'Tiempos Text', Georgia, serif;
     font-weight: 400;
     font-style: italic;
     letter-spacing: 0.01em;
@@ -52,7 +110,7 @@ blockquote, .pull-quote {
 
 /* Body paragraphs — serif, 400, dense */
 p, .font-body-md, .font-body-lg {
-    font-family: 'Lora', Georgia, serif;
+    font-family: 'Tiempos Text', Georgia, serif;
     font-weight: 400;
     line-height: 1.7;
 }
@@ -68,7 +126,7 @@ button, .btn, a.cta {
 
 /* Font helpers */
 .font-ornamental {
-    font-family: 'Lora', Georgia, serif;
+    font-family: 'Tiempos Text', Georgia, serif;
 }
 .text-ornamental { 
     letter-spacing: 0.2em; 
