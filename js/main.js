@@ -121,8 +121,12 @@ function initMenuOverlay() {
                             <span class="font-label-caps text-[10px] tracking-[0.16em] text-[#b3a486] group-hover:text-[#705b3c] transition-colors w-6">09</span>
                             <span class="font-ornamental text-[17px] md:text-[19px] text-[#1a1c1a] group-hover:text-[#705b3c] transition-colors">Gallery</span>
                         </a>
-                        <a class="menu-row group flex items-baseline gap-6 py-3 border-b border-[#e4ddcd]" href="contact.html">
+                        <a class="menu-row group flex items-baseline gap-6 py-3 border-b border-[#e4ddcd]" href="guest-love.html">
                             <span class="font-label-caps text-[10px] tracking-[0.16em] text-[#b3a486] group-hover:text-[#705b3c] transition-colors w-6">10</span>
+                            <span class="font-ornamental text-[17px] md:text-[19px] text-[#1a1c1a] group-hover:text-[#705b3c] transition-colors">Guest Voices</span>
+                        </a>
+                        <a class="menu-row group flex items-baseline gap-6 py-3 border-b border-[#e4ddcd]" href="contact.html">
+                            <span class="font-label-caps text-[10px] tracking-[0.16em] text-[#b3a486] group-hover:text-[#705b3c] transition-colors w-6">11</span>
                             <span class="font-ornamental text-[17px] md:text-[19px] text-[#1a1c1a] group-hover:text-[#705b3c] transition-colors">Contact</span>
                         </a>
                     </div>

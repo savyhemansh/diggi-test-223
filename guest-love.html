@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="robots" content="index, follow"/>
+    <title>Guest Voices | Diggi Palace — Heritage Hotel in Jaipur</title>
+    <meta name="description" content="Real words from real guests — Google reviews, Instagram moments, and press features celebrating Diggi Palace, Jaipur's finest heritage hotel.">
+    <link rel="canonical" href="https://www.hoteldiggipalace.com/guest-love.html">
+    <meta property="og:title" content="Guest Voices | Diggi Palace — Heritage Hotel in Jaipur">
+    <meta property="og:description" content="Real words from real guests — Google reviews, Instagram moments, and press features celebrating Diggi Palace.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.hoteldiggipalace.com/guest-love.html">
+    <meta property="og:image" content="https://www.hoteldiggipalace.com/public/images/homepage1.png">
+    <meta property="og:site_name" content="Diggi Palace">
+    <meta property="og:locale" content="en_IN"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta name="theme-color" content="#705b3c">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="dist/tailwind.css?v=1" rel="stylesheet"/>
+    <link href="css/custom.css?v=15" rel="stylesheet"/>
+    <script src="js/main.js?v=6" defer></script>
+<style>
+/* Letterbox card */
+.letterbox-card {
+    background: #fdf8f0;
+    border: 1px solid #e4ddcd;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: box-shadow 0.4s ease;
+}
+.letterbox-card:hover {
+    box-shadow: 0 8px 32px rgba(112, 91, 60, 0.08);
+}
+.letterbox-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #705b3c, transparent);
+    opacity: 0.3;
+}
+
+/* Star rating */
+.star-rating {
+    color: #705b3c;
+    letter-spacing: 0.15em;
+    font-size: 14px;
+}
+
+/* Instagram carousel */
+.instagram-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 1rem;
+}
+.instagram-scroll::-webkit-scrollbar { display: none; }
+.instagram-scroll .insta-card {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+    border: 1px solid #e4ddcd;
+    background: #fff;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.instagram-scroll .insta-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Press card */
+.press-card {
+    background: #fff;
+    border: 1px solid #e4ddcd;
+    overflow: hidden;
+    transition: box-shadow 0.4s ease;
+}
+.press-card:hover {
+    box-shadow: 0 8px 32px rgba(112, 91, 60, 0.08);
+}
+
+/* Scroll indicator arrows */
+.scroll-arrow {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #705b3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #faf9f6;
+    flex-shrink: 0;
+}
+.scroll-arrow:hover {
+    background: #705b3c;
+    color: #fff;
+}
+
+/* Placeholder for screenshots — remove when real images are added */
+.screenshot-placeholder {
+    background: #efeeeb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b3a486;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden nav-always-scrolled">
+<!-- TopNavBar -->
+<header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
+<nav class="flex justify-between items-center px-margin-desktop py-6 w-full">
+<div class="flex-1 flex items-center">
+<button id="menu-trigger" class="flex items-center gap-3 text-white nav-link hover:opacity-70">
+<span class="material-symbols-outlined text-xl font-light nav-icon">menu</span>
+<span class="font-label-caps tracking-[0.2em] uppercase text-[11px]">Menu</span>
+</button>
+</div>
+<div class="flex-shrink-0 text-center">
+<a class="block" href="index.html">
+<span class="font-display-lg text-[19px] text-white nav-logo-primary tracking-[0.16em] block uppercase">Diggi Palace</span>
+<span class="font-label-caps text-[9px] tracking-[0.16em] text-white/60 nav-logo-secondary uppercase">Jaipur, Rajasthan</span>
+</a>
+</div>
+<div class="flex-1 flex justify-end items-center gap-8">
+<a class="hidden md:flex items-center gap-2 text-white/80 nav-link hover:text-white transition-all duration-300" href="tel:+919352145034">
+<span class="material-symbols-outlined text-lg font-light nav-icon">call</span>
+<span class="font-label-caps tracking-widest text-[11px]">+91 93521-45034</span>
+</a>
+<button class="border border-white/60 text-white nav-btn px-8 py-3 font-label-caps hover:bg-white hover:text-black transition-all tracking-[0.2em] uppercase text-[11px]" onclick="window.location.href='mockreservation.html'">BOOK NOW</button>
+</div>
+</nav>
+</header>
+
+<!-- Hero Section -->
+<section class="w-full bg-[#2b2926]" style="padding:128px clamp(16px,4vw,40px) clamp(16px,4vw,40px) clamp(16px,4vw,40px);">
+    <div class="relative w-full overflow-hidden flex items-center justify-center" style="height:calc(60vh - 100px);">
+        <div class="absolute inset-0 bg-[#2b2926]"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center text-center text-white px-margin-mobile">
+            <span class="font-label-caps text-[10px] tracking-[0.24em] mb-6 block text-white/60">IN THEIR OWN WORDS</span>
+            <h1 class="font-display-lg text-[28px] md:text-[38px] mb-6 font-ornamental">Guest Voices</h1>
+            <p class="max-w-xl mx-auto font-body-lg text-[15px] opacity-80 leading-relaxed">Every review is a real guest. Every photograph, a real moment. No curation, no edits — just the love that Diggi Palace receives, as it was shared.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 1: GOOGLE REVIEWS — "THE LETTERBOX"
+     ============================================================ -->
+<section class="bg-surface py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-margin-desktop">
+        <!-- Section header -->
+        <div class="text-center mb-16">
+            <span class="font-label-caps text-[10px] tracking-[0.24em] text-[#705b3c] uppercase block mb-4">Verified Reviews</span>
+            <h2 class="font-display-lg text-[24px] md:text-[30px] font-ornamental mb-4">From Google, Unfiltered</h2>
+            <p class="max-w-lg mx-auto text-[13px] text-on-surface-variant leading-relaxed">Screenshots taken directly from Google Reviews — names, photos, and words exactly as guests wrote them.</p>
+        </div>
+
+        <!-- Review cards grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- Review Card 1 (placeholder — replace screenshot-placeholder with real image) -->
+            <div class="letterbox-card reveal-on-scroll">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="star-rating">★★★★★</div>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/60">GOOGLE REVIEW</span>
+                </div>
+                <div class="screenshot-placeholder w-full aspect-[4/3] mb-4">
+                    <!-- Replace this div with: <img src="public/images/reviews/google-01.png" alt="Google review screenshot" class="w-full h-auto"> -->
+                    Screenshot of Google Review
+                </div>
+                <div class="w-8 h-px bg-primary/30 mt-4"></div>
+            </div>
+
+            <!-- Review Card 2 -->
+            <div class="letterbox-card reveal-on-scroll">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="star-rating">★★★★★</div>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/60">GOOGLE REVIEW</span>
+                </div>
+                <div class="screenshot-placeholder w-full aspect-[4/3] mb-4">
+                    Screenshot of Google Review
+                </div>
+                <div class="w-8 h-px bg-primary/30 mt-4"></div>
+            </div>
+
+            <!-- Review Card 3 -->
+            <div class="letterbox-card reveal-on-scroll">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="star-rating">★★★★★</div>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/60">GOOGLE REVIEW</span>
+                </div>
+                <div class="screenshot-placeholder w-full aspect-[4/3] mb-4">
+                    Screenshot of Google Review
+                </div>
+                <div class="w-8 h-px bg-primary/30 mt-4"></div>
+            </div>
+
+            <!-- Review Card 4 -->
+            <div class="letterbox-card reveal-on-scroll">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="star-rating">★★★★★</div>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/60">GOOGLE REVIEW</span>
+                </div>
+                <div class="screenshot-placeholder w-full aspect-[4/3] mb-4">
+                    Screenshot of Google Review
+                </div>
+                <div class="w-8 h-px bg-primary/30 mt-4"></div>
+            </div>
+
+            <!-- Review Card 5 -->
+            <div class="letterbox-card reveal-on-scroll">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="star-rating">★★★★★</div>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/60">GOOGLE REVIEW</span>
+                </div>
+                <div class="screenshot-placeholder w-full aspect-[4/3] mb-4">
+                    Screenshot of Google Review
+                </div>
+                <div class="w-8 h-px bg-primary/30 mt-4"></div>
+            </div>
+
+            <!-- Review Card 6 -->
+            <div class="letterbox-card reveal-on-scroll">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="star-rating">★★★★★</div>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/60">GOOGLE REVIEW</span>
+                </div>
+                <div class="screenshot-placeholder w-full aspect-[4/3] mb-4">
+                    Screenshot of Google Review
+                </div>
+                <div class="w-8 h-px bg-primary/30 mt-4"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 2: INSTAGRAM — "TAGGED AT DIGGI PALACE"
+     ============================================================ -->
+<section class="bg-surface-container-low py-20 md:py-28">
+    <div class="max-w-[1400px] mx-auto px-margin-desktop">
+        <!-- Section header -->
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+            <div>
+                <span class="font-label-caps text-[10px] tracking-[0.24em] text-[#705b3c] uppercase block mb-4">From Instagram</span>
+                <h2 class="font-display-lg text-[24px] md:text-[30px] font-ornamental">Tagged at Diggi Palace</h2>
+                <p class="max-w-md text-[13px] text-on-surface-variant leading-relaxed mt-3">Real posts from real guests — usernames, captions, and photographs exactly as shared on Instagram.</p>
+            </div>
+            <!-- Scroll controls -->
+            <div class="flex gap-3 mt-6 md:mt-0">
+                <button class="scroll-arrow" onclick="document.getElementById('insta-carousel').scrollBy({left:-340,behavior:'smooth'})">
+                    <span class="material-symbols-outlined text-lg">chevron_left</span>
+                </button>
+                <button class="scroll-arrow" onclick="document.getElementById('insta-carousel').scrollBy({left:340,behavior:'smooth'})">
+                    <span class="material-symbols-outlined text-lg">chevron_right</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Instagram horizontal scroll carousel -->
+        <div id="insta-carousel" class="instagram-scroll">
+
+            <!-- Insta Card 1 (placeholder) -->
+            <div class="insta-card">
+                <div class="screenshot-placeholder w-full aspect-square">
+                    <!-- Replace with: <img src="public/images/reviews/insta-01.png" alt="Instagram post tagged at Diggi Palace" class="w-full h-auto"> -->
+                    Instagram Post Screenshot
+                </div>
+                <div class="p-4">
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-[#705b3c]">INSTAGRAM</span>
+                </div>
+            </div>
+
+            <!-- Insta Card 2 -->
+            <div class="insta-card">
+                <div class="screenshot-placeholder w-full aspect-square">
+                    Instagram Post Screenshot
+                </div>
+                <div class="p-4">
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-[#705b3c]">INSTAGRAM</span>
+                </div>
+            </div>
+
+            <!-- Insta Card 3 -->
+            <div class="insta-card">
+                <div class="screenshot-placeholder w-full aspect-square">
+                    Instagram Post Screenshot
+                </div>
+                <div class="p-4">
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-[#705b3c]">INSTAGRAM</span>
+                </div>
+            </div>
+
+            <!-- Insta Card 4 -->
+            <div class="insta-card">
+                <div class="screenshot-placeholder w-full aspect-square">
+                    Instagram Post Screenshot
+                </div>
+                <div class="p-4">
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-[#705b3c]">INSTAGRAM</span>
+                </div>
+            </div>
+
+            <!-- Insta Card 5 -->
+            <div class="insta-card">
+                <div class="screenshot-placeholder w-full aspect-square">
+                    Instagram Post Screenshot
+                </div>
+                <div class="p-4">
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-[#705b3c]">INSTAGRAM</span>
+                </div>
+            </div>
+
+            <!-- Insta Card 6 -->
+            <div class="insta-card">
+                <div class="screenshot-placeholder w-full aspect-square">
+                    Instagram Post Screenshot
+                </div>
+                <div class="p-4">
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-[#705b3c]">INSTAGRAM</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 3: IN THE PRESS
+     ============================================================ -->
+<section class="bg-surface py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-margin-desktop">
+        <!-- Section header -->
+        <div class="text-center mb-16">
+            <span class="font-label-caps text-[10px] tracking-[0.24em] text-[#705b3c] uppercase block mb-4">As Featured In</span>
+            <h2 class="font-display-lg text-[24px] md:text-[30px] font-ornamental mb-4">In the News</h2>
+            <p class="max-w-lg mx-auto text-[13px] text-on-surface-variant leading-relaxed">Diggi Palace as seen in leading publications and travel journals.</p>
+        </div>
+
+        <!-- Press cards grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Press Card 1 (placeholder — replace with real article data) -->
+            <a href="#" class="press-card group reveal-on-scroll block">
+                <div class="screenshot-placeholder w-full aspect-[16/10]">
+                    <!-- Replace with: <img src="public/images/press/press-01.jpg" alt="Publication name — article headline" class="w-full h-full object-cover"> -->
+                    Publication Cover / Article Image
+                </div>
+                <div class="p-6">
+                    <span class="font-label-caps text-[9px] tracking-[0.2em] text-[#705b3c] uppercase block mb-2">Publication Name</span>
+                    <h3 class="font-display-lg text-[17px] font-ornamental group-hover:text-primary transition-colors mb-2">Article Headline Goes Here</h3>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/50 uppercase">Month Year</span>
+                </div>
+            </a>
+
+            <!-- Press Card 2 -->
+            <a href="#" class="press-card group reveal-on-scroll block">
+                <div class="screenshot-placeholder w-full aspect-[16/10]">
+                    Publication Cover / Article Image
+                </div>
+                <div class="p-6">
+                    <span class="font-label-caps text-[9px] tracking-[0.2em] text-[#705b3c] uppercase block mb-2">Publication Name</span>
+                    <h3 class="font-display-lg text-[17px] font-ornamental group-hover:text-primary transition-colors mb-2">Article Headline Goes Here</h3>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/50 uppercase">Month Year</span>
+                </div>
+            </a>
+
+            <!-- Press Card 3 -->
+            <a href="#" class="press-card group reveal-on-scroll block">
+                <div class="screenshot-placeholder w-full aspect-[16/10]">
+                    Publication Cover / Article Image
+                </div>
+                <div class="p-6">
+                    <span class="font-label-caps text-[9px] tracking-[0.2em] text-[#705b3c] uppercase block mb-2">Publication Name</span>
+                    <h3 class="font-display-lg text-[17px] font-ornamental group-hover:text-primary transition-colors mb-2">Article Headline Goes Here</h3>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/50 uppercase">Month Year</span>
+                </div>
+            </a>
+
+            <!-- Press Card 4 -->
+            <a href="#" class="press-card group reveal-on-scroll block">
+                <div class="screenshot-placeholder w-full aspect-[16/10]">
+                    Publication Cover / Article Image
+                </div>
+                <div class="p-6">
+                    <span class="font-label-caps text-[9px] tracking-[0.2em] text-[#705b3c] uppercase block mb-2">Publication Name</span>
+                    <h3 class="font-display-lg text-[17px] font-ornamental group-hover:text-primary transition-colors mb-2">Article Headline Goes Here</h3>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/50 uppercase">Month Year</span>
+                </div>
+            </a>
+
+            <!-- Press Card 5 -->
+            <a href="#" class="press-card group reveal-on-scroll block">
+                <div class="screenshot-placeholder w-full aspect-[16/10]">
+                    Publication Cover / Article Image
+                </div>
+                <div class="p-6">
+                    <span class="font-label-caps text-[9px] tracking-[0.2em] text-[#705b3c] uppercase block mb-2">Publication Name</span>
+                    <h3 class="font-display-lg text-[17px] font-ornamental group-hover:text-primary transition-colors mb-2">Article Headline Goes Here</h3>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/50 uppercase">Month Year</span>
+                </div>
+            </a>
+
+            <!-- Press Card 6 -->
+            <a href="#" class="press-card group reveal-on-scroll block">
+                <div class="screenshot-placeholder w-full aspect-[16/10]">
+                    Publication Cover / Article Image
+                </div>
+                <div class="p-6">
+                    <span class="font-label-caps text-[9px] tracking-[0.2em] text-[#705b3c] uppercase block mb-2">Publication Name</span>
+                    <h3 class="font-display-lg text-[17px] font-ornamental group-hover:text-primary transition-colors mb-2">Article Headline Goes Here</h3>
+                    <span class="font-label-caps text-[9px] tracking-[0.16em] text-on-surface-variant/50 uppercase">Month Year</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-surface-container-low">
+<div class="max-w-max-width mx-auto px-margin-desktop py-20 md:py-24 flex flex-col items-center text-center">
+<span class="font-display-lg text-[26px] md:text-[34px] text-primary tracking-[0.18em] block uppercase">Diggi Palace</span>
+<span class="font-label-caps text-[10px] tracking-[0.3em] text-on-surface-variant/70 uppercase mt-3">Shivaji Marg · C-Scheme · Jaipur 302004 · Rajasthan</span>
+<div class="w-16 h-px bg-primary/40 my-10"></div>
+<nav class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
+<a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="history.html">About</a>
+<a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="experiences.html">Experiences</a>
+<a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="culinary.html">Dining</a>
+<a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="gallery/index.html">Gallery</a>
+<a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="guest-love.html">Guest Voices</a>
+<a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="contact.html">Contact</a>
+</nav>
+<div class="flex gap-7 mt-12">
+<a href="#" aria-label="Instagram" class="text-on-surface-variant hover:text-primary transition-colors"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zm0 1.95c-3.14 0-3.51.01-4.75.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71-.06 1.24-.07 1.61-.07 4.75s.01 3.51.07 4.75c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.04-.9-.19-1.39-.32-1.71-.17-.43-.37-.74-.69-1.06-.32-.32-.63-.52-1.06-.69-.32-.13-.81-.28-1.71-.32-1.24-.06-1.61-.07-4.75-.07zm0 3.32a4.57 4.57 0 110 9.14 4.57 4.57 0 010-9.14zm0 7.54a2.97 2.97 0 100-5.94 2.97 2.97 0 000 5.94zm5.82-7.74a1.07 1.07 0 11-2.14 0 1.07 1.07 0 012.14 0z"/></svg></a>
+<a href="#" aria-label="Facebook" class="text-on-surface-variant hover:text-primary transition-colors"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.12 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.25h3.32l-.53 3.49h-2.79V24C19.61 23.08 24 18.09 24 12.07z"/></svg></a>
+<a href="#" aria-label="X" class="text-on-surface-variant hover:text-primary transition-colors"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg></a>
+</div>
+<p class="font-label-caps text-[10px] tracking-[0.16em] text-outline uppercase mt-14">&copy; 2026 Diggi Palace Heritage Hotels. All rights reserved.</p>
+</div>
+</footer>
+</body>
+</html>
