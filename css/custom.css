@@ -441,6 +441,47 @@ body.nav-always-scrolled header#top-nav .nav-btn:hover {
 }
 
 /* =====================================
+   ROOMS SLIDER — desktop arrows, mobile native swipe
+   On mobile the arrow buttons are hidden, so the track must be
+   swipeable. Neutralise the JS translateX transform and let the
+   viewport scroll horizontally with snap.
+   ===================================== */
+@media (max-width: 767px) {
+    .rooms-viewport {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .rooms-viewport::-webkit-scrollbar {
+        display: none;
+        height: 0;
+    }
+    #rooms-track {
+        transform: none !important;
+    }
+    #rooms-track > a {
+        scroll-snap-align: start;
+    }
+}
+
+/* =====================================
+   GALLERY STRIP — desktop hover-expand, mobile swipe
+   Hover-to-expand is a no-op on touch, so on mobile the strip
+   becomes a horizontally scrollable row of full-size panels.
+   ===================================== */
+.gallery-strip {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.gallery-strip::-webkit-scrollbar {
+    display: none;
+    height: 0;
+}
+
+/* =====================================
    COPY TOOLTIP (contact page)
    ===================================== */
 .copy-tooltip {
