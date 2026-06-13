@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
+Disallow: /docs/
+Disallow: /wasted do not use..../
+Disallow: /mock aman images /
+Disallow: /mock test/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.claude/
+Disallow: /.swarm/
+Disallow: /.claude-flow/
+Disallow: /vercel-test/
 
 Sitemap: https://www.hoteldiggipalace.com/sitemap.xml
