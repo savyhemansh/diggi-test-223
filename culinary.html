@@ -29,7 +29,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link href="dist/tailwind.css?v=3" rel="stylesheet"/>
-    <link href="css/custom.css?v=17" rel="stylesheet"/>
+    <link href="css/custom.css?v=19" rel="stylesheet"/>
 
 <script type="application/ld+json">
 {
@@ -134,6 +134,7 @@
                     loop
                     playsinline
                     preload="auto"
+                    poster="./public/images/homepage3.png"
                     class="absolute inset-0 w-full h-full object-cover">
 
                     <source src="./public/videos/stay-01.mp4" type="video/mp4">
@@ -260,6 +261,30 @@
                 </div>
             </div>
         </section>
+
+        <!-- FAQ — visible content matching the FAQPage schema in <head> -->
+        <section class="py-16 md:py-24 px-margin-desktop bg-surface-container-low">
+            <div class="max-w-3xl mx-auto">
+                <span class="font-label-caps text-primary tracking-[0.16em] mb-4 block uppercase text-center">Good to Know</span>
+                <h2 class="font-display-lg text-[24px] md:text-[28px] text-on-surface mb-10 text-center font-ornamental">Frequently Asked Questions</h2>
+                <div class="divide-y divide-outline-variant/30">
+                    <details class="group py-6">
+                        <summary class="flex justify-between items-center cursor-pointer font-headline-md text-headline-md text-on-surface list-none">
+                            <span>What restaurants are inside Diggi Palace Jaipur?</span>
+                            <span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+                        </summary>
+                        <p class="mt-4 text-on-surface-variant leading-relaxed">Diggi Palace has two restaurants: Baradari, serving royal Rajasthani thali and fine dining under historic arches; and La Brass, an all-day bistro offering global and Indian cuisine throughout the day.</p>
+                    </details>
+                    <details class="group py-6">
+                        <summary class="flex justify-between items-center cursor-pointer font-headline-md text-headline-md text-on-surface list-none">
+                            <span>Is Rajasthani food available at Diggi Palace?</span>
+                            <span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+                        </summary>
+                        <p class="mt-4 text-on-surface-variant leading-relaxed">Yes. Baradari Restaurant at Diggi Palace is renowned for its authentic Rajasthani royal thali — laal maas, dal baati churma, gatte ki sabzi and seasonal specialities served in a heritage dining setting.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
     </main>
     <!-- Footer -->
     <footer class="bg-surface-container-low border-t border-outline-variant/30">
@@ -271,6 +296,7 @@
                 <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors" href="history.html">Legacy</a>
                 <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors" href="culinary.html">Dining</a>
                 <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors" href="experiences.html">Experiences</a>
+                <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors" href="blog.html">Journal</a>
             </div>
             <div class="w-full max-w-lg border-t border-outline-variant/20 pt-12">
                 <p class="font-body-md text-body-md text-secondary mb-4">Subscribe to the Heritage Chronicle</p>
@@ -280,7 +306,7 @@
                     <button class="font-label-caps text-label-caps text-primary hover:opacity-70 transition-opacity">JOIN</button>
                 </div>
             </div>
-            <p class="font-label-caps text-label-caps text-on-secondary-fixed-variant mt-8 opacity-60">© 2024 Diggi Palace Heritage Hotels. All rights reserved.</p>
+            <p class="font-label-caps text-label-caps text-on-secondary-fixed-variant mt-8 opacity-60">© 2026 Diggi Palace Heritage Hotels. All rights reserved.</p>
         </div>
     </footer>
     <!-- Collection Drawer Overlay -->
@@ -379,6 +405,6 @@
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCollection(); });
     </script>
 
-    <script src="js/main.js?v=6"></script>
+    <script src="js/main.js?v=10"></script>
 </body>
 </html>

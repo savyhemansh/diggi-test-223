@@ -47,7 +47,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    <link href="css/custom.css?v=17" rel="stylesheet"/>
+    <link href="css/custom.css?v=19" rel="stylesheet"/>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -408,6 +408,7 @@
             loop
             playsinline
             preload="auto"
+            poster="./public/images/homepage2.png"
             class="absolute inset-0 w-full h-full object-cover">
             <source src="./public/videos/hero.mp4" type="video/mp4">
         </video>
@@ -449,6 +450,38 @@
 <button class="px-20 py-5 bg-primary text-on-primary font-label-caps tracking-widest hover:bg-on-primary-fixed-variant transition-all duration-500 text-sm" type="submit">SEND ENQUIRY</button>
 </div>
 </form></section>
+
+<!-- FAQ — visible content matching the FAQPage schema in <head> -->
+<section class="py-16 md:py-24 px-margin-desktop bg-surface-container-low">
+<div class="max-w-3xl mx-auto">
+<span class="font-label-caps text-primary tracking-[0.16em] mb-4 block uppercase text-center">Good to Know</span>
+<h2 class="font-display-lg text-[24px] md:text-[28px] text-on-surface mb-10 text-center font-ornamental">Frequently Asked Questions</h2>
+<div class="divide-y divide-outline-variant/30">
+<details class="group py-6">
+<summary class="flex justify-between items-center cursor-pointer font-headline-md text-headline-md text-on-surface list-none">
+<span>Is Diggi Palace a good wedding venue in Jaipur?</span>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Yes. Diggi Palace is one of Jaipur's most celebrated heritage wedding venues, offering three unique spaces: Durbar Hall (500 guests), Green Sanctuary garden (300 guests) and the intimate Zenana Courtyard (80 guests), set in a 1860 ancestral palace.</p>
+</details>
+<details class="group py-6">
+<summary class="flex justify-between items-center cursor-pointer font-headline-md text-headline-md text-on-surface list-none">
+<span>What is the capacity for weddings at Diggi Palace?</span>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Diggi Palace can host weddings from 80 to 500 guests across its three venues. The Durbar Hall suits grand receptions, the Green Sanctuary garden weddings, and the Zenana Courtyard intimate ceremonies.</p>
+</details>
+<details class="group py-6">
+<summary class="flex justify-between items-center cursor-pointer font-headline-md text-headline-md text-on-surface list-none">
+<span>Does Diggi Palace offer destination wedding packages?</span>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Yes. The Diggi Palace events team curates complete destination wedding packages including accommodation, catering, décor and cultural entertainment for both Indian and international couples.</p>
+</details>
+</div>
+</div>
+</section>
+
 <!-- Footer -->
 <footer class="bg-surface-container w-full mt-10 border-t border-outline-variant">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-12 md:py-20 max-w-max-width mx-auto">
@@ -458,13 +491,14 @@
 </div>
 <div class="flex flex-col gap-4">
 <h4 class="font-label-caps text-secondary">LEGACY</h4>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Ancestral History</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Sustainability</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="history.html">Ancestral History</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="sustainability.html">Sustainability</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="blog.html">Journal</a>
 </div>
 <div class="flex flex-col gap-4">
 <h4 class="font-label-caps text-secondary">CONNECT</h4>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Contact Us</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="contact.html">Contact Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="privacy-policy.html">Privacy Policy</a>
 </div>
 <div class="flex flex-col gap-4">
 <h4 class="font-label-caps text-secondary">NEWSLETTER</h4>
@@ -476,10 +510,10 @@
 </div>
 </div>
 <div class="max-w-max-width mx-auto px-margin-desktop py-12 border-t border-outline-variant/30 text-center">
-<p class="font-body-md text-on-surface-variant/70 text-sm">© 2024 Diggi Palace Heritage Hotel. All rights reserved.</p>
+<p class="font-body-md text-on-surface-variant/70 text-sm">© 2026 Diggi Palace Heritage Hotel. All rights reserved.</p>
 </div>
 </footer>
-<script src="js/main.js?v=6"></script>
+<script src="js/main.js?v=10"></script>
 <script>
         // Simple Intersection Observer for animations
         const celebObserverOptions = {

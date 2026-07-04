@@ -1,5 +1,34 @@
 // main.js - Global Scripts for Diggi Palace Heritage Site
 
+// ============================================================
+// GOOGLE ANALYTICS 4 (consent-gated)
+// Loads gtag.js only after the visitor has accepted cookies via the
+// consent banner below. Self-contained here so every page that includes
+// main.js gets it automatically — no per-page <script> tags needed.
+// ============================================================
+const GA_MEASUREMENT_ID = 'G-57THQ3DCNE';
+let gaLoaded = false;
+
+function loadGoogleAnalytics() {
+    if (gaLoaded) return;
+    gaLoaded = true;
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID);
+}
+
+function initAnalyticsConsentGate() {
+    if (window.cookieConsent.categories().statistics) loadGoogleAnalytics();
+}
+
 // Scroll reveal initial states
 const observerOptions = {
     threshold: 0.1
@@ -41,7 +70,181 @@ function initAll() {
 
     // 4. Initialise Pinned Gallery Scroll-Driven Experience
     initPinnedGallery();
+
+    // 5. Initialise Cookie Consent Banner
+    initCookieConsent();
+
+    // 6. Load Google Analytics if consent was already given on a previous visit
+    initAnalyticsConsentGate();
 }
+
+// ============================================================
+// COOKIE CONSENT
+// Discreet bottom bar shown until the visitor makes a choice.
+// Consent is stored per-category in localStorage so each toggle controls
+// only its own scripts — e.g. turning Statistics off and clicking OK does
+// NOT load Google Analytics. Any future script (Meta Pixel, a chat widget,
+// etc.) should gate itself the same way GA does, via
+// window.cookieConsent.categories().<key> or the onChange() hook below.
+// ============================================================
+const COOKIE_CONSENT_KEY = 'diggi_cookie_consent_categories';
+const COOKIE_CONSENT_DECIDED_KEY = 'diggi_cookie_consent_decided';
+const COOKIE_CATEGORY_DEFS = [
+    { key: 'necessary',   label: 'Necessary',   locked: true  },
+    { key: 'preferences', label: 'Preferences',  locked: false },
+    { key: 'statistics',  label: 'Statistics',   locked: false },
+    { key: 'marketing',   label: 'Marketing',    locked: false },
+];
+const consentListeners = [];
+
+function readStoredCategories() {
+    try {
+        const raw = localStorage.getItem(COOKIE_CONSENT_KEY);
+        if (raw) return JSON.parse(raw);
+    } catch (e) {
+        // Private mode / storage blocked / corrupt JSON — fall through to defaults.
+    }
+    return null;
+}
+
+function writeStoredCategories(categories) {
+    try {
+        localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(categories));
+        localStorage.setItem(COOKIE_CONSENT_DECIDED_KEY, 'true');
+    } catch (e) {
+        // Storage blocked — choice only persists for this page view.
+    }
+    consentListeners.forEach(fn => fn(categories));
+}
+
+function initCookieConsent() {
+    // Already chosen, or injected already — do nothing.
+    if (document.getElementById('cookie-banner')) return;
+
+    let decided = null;
+    try {
+        decided = localStorage.getItem(COOKIE_CONSENT_DECIDED_KEY);
+    } catch (e) {
+        // Treat as "not yet decided".
+    }
+    if (decided === 'true') return;
+
+    const toggleRowHtml = COOKIE_CATEGORY_DEFS.map(cat => `
+        <div class="cookie-toggle">
+            <span class="cookie-toggle__label">${cat.label}</span>
+            <button type="button"
+                class="cookie-switch ${cat.locked ? 'is-locked is-on' : 'is-on'} no-press"
+                data-category="${cat.key}"
+                ${cat.locked ? 'disabled' : ''}
+                role="switch"
+                aria-checked="true"
+                aria-label="${cat.label} cookies">
+                <span class="cookie-switch__knob"></span>
+            </button>
+        </div>`).join('');
+
+    const banner = document.createElement('aside');
+    banner.id = 'cookie-banner';
+    banner.className = 'cookie-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-live', 'polite');
+    banner.setAttribute('aria-label', 'Cookie consent');
+    banner.innerHTML = `
+        <div class="cookie-banner__inner">
+            <div class="cookie-banner__top">
+                <div class="cookie-banner__copy">
+                    <h2 class="cookie-banner__heading">This website uses cookies</h2>
+                    <p class="cookie-banner__text">
+                        We use cookies to personalise content, remember your preferences and
+                        analyse our traffic, so we can continue offering you a refined and
+                        seamless experience of Diggi Palace. Use the switches below to choose
+                        which categories you allow.
+                    </p>
+                </div>
+                <button type="button" class="cookie-btn cookie-btn--accept no-press" data-consent="confirm">OK</button>
+            </div>
+            <div class="cookie-banner__bottom">
+                <div class="cookie-banner__toggles">${toggleRowHtml}</div>
+                <button type="button" class="cookie-banner__details no-press" data-consent="declined">Decline All</button>
+            </div>
+        </div>`;
+
+    document.body.appendChild(banner);
+
+    // Animate in after the element is in the DOM.
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => banner.classList.add('is-visible'));
+    });
+
+    function currentToggleStates() {
+        const categories = {};
+        COOKIE_CATEGORY_DEFS.forEach(cat => {
+            const sw = banner.querySelector(`.cookie-switch[data-category="${cat.key}"]`);
+            categories[cat.key] = cat.locked ? true : sw.classList.contains('is-on');
+        });
+        return categories;
+    }
+
+    function closeBanner() {
+        banner.classList.remove('is-visible');
+        banner.addEventListener('transitionend', () => banner.remove(), { once: true });
+        // Fallback removal in case transitionend doesn't fire.
+        setTimeout(() => banner.remove(), 700);
+    }
+
+    banner.querySelector('[data-consent="confirm"]').addEventListener('click', () => {
+        writeStoredCategories(currentToggleStates());
+        closeBanner();
+    });
+
+    banner.querySelector('[data-consent="declined"]').addEventListener('click', () => {
+        const allOff = {};
+        COOKIE_CATEGORY_DEFS.forEach(cat => { allOff[cat.key] = cat.locked; });
+        writeStoredCategories(allOff);
+        closeBanner();
+    });
+
+    banner.querySelectorAll('.cookie-switch:not(.is-locked)').forEach(sw => {
+        sw.addEventListener('click', () => {
+            const on = sw.classList.toggle('is-on');
+            sw.setAttribute('aria-checked', String(on));
+        });
+    });
+}
+
+// Public hook so any script (current or future) can read/reset consent
+// and react immediately when the visitor changes their choice.
+window.cookieConsent = {
+    categories() {
+        const stored = readStoredCategories();
+        const result = {};
+        COOKIE_CATEGORY_DEFS.forEach(cat => {
+            result[cat.key] = cat.locked ? true : !!(stored && stored[cat.key]);
+        });
+        return result;
+    },
+    status() {
+        try {
+            return localStorage.getItem(COOKIE_CONSENT_DECIDED_KEY) === 'true' ? 'decided' : null;
+        } catch (e) {
+            return null;
+        }
+    },
+    onChange(fn) {
+        if (typeof fn === 'function') consentListeners.push(fn);
+    },
+    reset() {
+        try {
+            localStorage.removeItem(COOKIE_CONSENT_KEY);
+            localStorage.removeItem(COOKIE_CONSENT_DECIDED_KEY);
+        } catch (e) {}
+    }
+};
+
+// Re-evaluate consent-gated scripts the instant the visitor changes a toggle.
+window.cookieConsent.onChange((categories) => {
+    if (categories.statistics) loadGoogleAnalytics();
+});
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAll);
@@ -125,8 +328,12 @@ function initMenuOverlay() {
                             <span class="font-label-caps text-[10px] tracking-[0.16em] text-[#b3a486] group-hover:text-[#705b3c] transition-colors w-6">10</span>
                             <span class="font-ornamental text-[17px] md:text-[19px] text-[#1a1c1a] group-hover:text-[#705b3c] transition-colors">Guest Voices</span>
                         </a>
-                        <a class="menu-row group flex items-baseline gap-6 py-3 border-b border-[#e4ddcd]" href="contact.html">
+                        <a class="menu-row group flex items-baseline gap-6 py-3 border-b border-[#e4ddcd]" href="blog.html">
                             <span class="font-label-caps text-[10px] tracking-[0.16em] text-[#b3a486] group-hover:text-[#705b3c] transition-colors w-6">11</span>
+                            <span class="font-ornamental text-[17px] md:text-[19px] text-[#1a1c1a] group-hover:text-[#705b3c] transition-colors">Journal</span>
+                        </a>
+                        <a class="menu-row group flex items-baseline gap-6 py-3 border-b border-[#e4ddcd]" href="contact.html">
+                            <span class="font-label-caps text-[10px] tracking-[0.16em] text-[#b3a486] group-hover:text-[#705b3c] transition-colors w-6">12</span>
                             <span class="font-ornamental text-[17px] md:text-[19px] text-[#1a1c1a] group-hover:text-[#705b3c] transition-colors">Contact</span>
                         </a>
                     </div>

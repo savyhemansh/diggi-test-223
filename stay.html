@@ -29,8 +29,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link href="dist/tailwind.css?v=3" rel="stylesheet"/>
-    <link href="css/custom.css?v=17" rel="stylesheet"/>
-    <script src="js/main.js?v=6" defer></script>
+    <link href="css/custom.css?v=19" rel="stylesheet"/>
+    <script src="js/main.js?v=10" defer></script>
 
 <script type="application/ld+json">
 {
@@ -159,6 +159,7 @@
             loop
             playsinline
             preload="auto"
+            poster="./public/images/stay/Palace Suite.png"
             class="absolute inset-0 w-full h-full object-cover">
 
             <source src="./public/videos/stay-01.mp4" type="video/mp4">
@@ -318,6 +319,37 @@
             </button>
         </div>
     </section>
+
+    <!-- FAQ — visible content matching the FAQPage schema in <head> -->
+    <section class="py-16 md:py-24 px-margin-desktop bg-surface-container-low">
+        <div class="max-w-3xl mx-auto">
+            <span class="font-label-caps text-primary tracking-[0.16em] mb-4 block uppercase text-center">Good to Know</span>
+            <h2 class="font-display-lg text-[24px] md:text-[28px] text-on-surface mb-10 text-center font-ornamental">Frequently Asked Questions</h2>
+            <div class="divide-y divide-outline-variant/30">
+                <details class="group py-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-headline-md text-headline-md text-on-surface list-none">
+                        <span>What rooms are available at Diggi Palace?</span>
+                        <span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-on-surface-variant leading-relaxed">Diggi Palace offers four categories: Palace Suite (most luxurious, with vaulted ceilings and butler service), Courtyard Suite (private garden courtyard), Heritage Deluxe (hand-painted ceilings, garden views) and Heritage Standard (classic heritage comfort).</p>
+                </details>
+                <details class="group py-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-headline-md text-headline-md text-on-surface list-none">
+                        <span>What is the check-in and check-out time at Diggi Palace?</span>
+                        <span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-on-surface-variant leading-relaxed">Check-in is at 2:00 PM and check-out is at 11:00 AM. Early check-in and late check-out are available on request subject to availability.</p>
+                </details>
+                <details class="group py-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-headline-md text-headline-md text-on-surface list-none">
+                        <span>Is Diggi Palace pet friendly?</span>
+                        <span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-on-surface-variant leading-relaxed">Yes, Diggi Palace is a pet-friendly heritage hotel in Jaipur. Guests may bring pets subject to hotel policy — please contact the hotel in advance.</p>
+                </details>
+            </div>
+        </div>
+    </section>
 </main>
 
 <!-- Footer -->
@@ -329,9 +361,10 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-x-16 gap-y-8 w-full max-w-3xl">
             <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="gallery/index.html">Gallery</a>
                 <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="guest-love.html">Guest Voices</a>
-            <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="#">Sustainability</a>
+            <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="sustainability.html">Sustainability</a>
             <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="contact.html">Contact</a>
-            <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="#">Press</a>
+            <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="guest-love.html">Press</a>
+            <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="blog.html">Journal</a>
         </div>
         <div class="flex gap-8 mt-4">
             <a class="text-secondary hover:text-primary transition-colors" href="#">
@@ -345,7 +378,7 @@
             </a>
         </div>
         <p class="font-body-md text-secondary max-w-lg mx-auto opacity-70">
-            © 2024 Diggi Palace Heritage Hotels. All rights reserved. Part of the Heritage Collection of Jaipur.
+            © 2026 Diggi Palace Heritage Hotels. All rights reserved. Part of the Heritage Collection of Jaipur.
         </p>
     </div>
 </footer>

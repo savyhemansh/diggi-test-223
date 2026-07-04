@@ -31,7 +31,7 @@
 <!-- intl-tel-input CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/css/intlTelInput.css">
     <link href="dist/tailwind.css?v=3" rel="stylesheet"/>
-    <link href="css/custom.css?v=17" rel="stylesheet"/>
+    <link href="css/custom.css?v=19" rel="stylesheet"/>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -397,15 +397,41 @@
 </div>
 </div>
 </section>
+
+<!-- FAQ — visible content matching the FAQPage schema in <head> -->
+<section class="py-16 md:py-24 px-margin-desktop bg-surface-container-low">
+<div class="max-w-3xl mx-auto">
+<span class="font-label-caps text-primary tracking-[0.16em] mb-4 block uppercase text-center">Good to Know</span>
+<h2 class="font-display-lg text-[24px] md:text-[28px] text-on-surface mb-10 text-center font-ornamental">Frequently Asked Questions</h2>
+<div class="divide-y divide-outline-variant/30">
+<details class="group py-6">
+<summary class="flex justify-between items-center cursor-pointer font-headline-md text-headline-md text-on-surface list-none">
+<span>What is Diggi Palace's address?</span>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Diggi Palace is located at Shivaji Marg, C-Scheme, Jaipur 302004, Rajasthan, India. It is a 5-minute drive from Jaipur Railway Station.</p>
+</details>
+<details class="group py-6">
+<summary class="flex justify-between items-center cursor-pointer font-headline-md text-headline-md text-on-surface list-none">
+<span>What is the phone number of Diggi Palace Jaipur?</span>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">You can reach Diggi Palace at +91 93521-45034 or by email at crs@hoteldiggipalace.com for reservations, weddings and event enquiries.</p>
+</details>
+</div>
+</div>
+</section>
+
 <!-- Footer -->
 <footer class="bg-surface-container-low border-t border-outline-variant/30 py-16 md:py-24">
 <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-12">
 <a class="font-display-lg text-headline-md text-primary tracking-[0.16em] uppercase" href="index.html">DIGGI PALACE</a>
 <nav class="flex flex-wrap justify-center gap-8 md:gap-16">
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="privacy-policy.html">Privacy Policy</a>
 <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
 <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Press Kit</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a>
+<!-- PLACEHOLDER: careers@ inbox not yet confirmed live — set up or swap for HR contact before launch -->
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="mailto:careers@hoteldiggipalace.com">Careers</a>
 <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Sitemap</a>
 </nav>
 <div class="flex gap-10">
@@ -417,7 +443,7 @@
 </a>
 </div>
 <p class="font-body-md text-on-surface-variant text-center text-sm">
-            © 2024 DIGGI PALACE Hotels & Resorts. All rights reserved.
+            © 2026 DIGGI PALACE Hotels & Resorts. All rights reserved.
         </p>
 </div>
 </footer>
@@ -712,7 +738,7 @@
         });
     });
 </script>
-<script src="js/main.js?v=6"></script>
+<script src="js/main.js?v=10"></script>
 <script>
     // Self-contained independent menu overlay functions
     function toggleOverlayMenu() {

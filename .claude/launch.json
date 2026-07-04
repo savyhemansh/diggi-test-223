@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["serve", "-l", "4321", "."],
       "port": 4321
+    },
+    {
+      "name": "eelegant",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "4322", "/Users/hemanshjoshi/Desktop/Websites/EELEGANT EVENTS"],
+      "port": 4322
     }
   ]
 }

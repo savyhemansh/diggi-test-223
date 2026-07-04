@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diggi Palace — Professional Photoshoot Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#705b3c; --ink:#2b2926; --ink-soft:#4d463c; --muted:#7f766b;
+    --surface:#faf9f6; --parchment:#F9F8F5; --gold:#D4AF37; --line:#e4ddcd;
+    --container:#efeeeb; --accent-green:#4a6741; --accent-warm:#8b6914;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:#e8e6e0; color:var(--ink);
+    font-family:'Fraunces',Georgia,serif; font-weight:400; line-height:1.75;
+    letter-spacing:.012em; -webkit-font-smoothing:antialiased; font-size:15px;
+  }
+  .page{
+    max-width:820px; margin:32px auto; background:var(--surface);
+    padding:84px 76px; box-shadow:0 24px 60px rgba(0,0,0,.12);
+  }
+  @media(max-width:700px){
+    .page{padding:40px 28px; margin:0;}
+  }
+
+  h1,h2,h3{font-family:'Cormorant Garamond','Didot',Georgia,serif; font-weight:500; color:var(--ink); letter-spacing:.01em; line-height:1.2;}
+  h1{font-size:42px; font-weight:600; margin:0 0 4px;}
+  h2{font-size:28px; margin:54px 0 12px; padding-top:26px; border-top:1px solid var(--line);}
+  h3{font-size:20px; margin:30px 0 8px; color:var(--primary);}
+  h4{font-size:13px; margin:22px 0 6px; font-family:'Inter',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:var(--ink-soft);}
+  p{margin:12px 0;}
+  strong{font-weight:600; color:var(--ink);}
+  em{color:var(--ink-soft);}
+  ul,ol{padding-left:22px; margin:10px 0;}
+  li{margin:6px 0;}
+
+  .eyebrow{font-family:'Inter',sans-serif; text-transform:uppercase; letter-spacing:.32em; font-size:10px; color:var(--primary); font-weight:500;}
+  .subtitle{font-family:'Cormorant Garamond',serif; font-size:24px; font-style:italic; color:var(--ink-soft); margin:10px 0 0; font-weight:400;}
+  .cover{text-align:center; padding:50px 0 40px;}
+  .cover .rule{width:54px; height:1px; background:var(--gold); margin:22px auto;}
+  .cover .date{font-family:'Inter',sans-serif; letter-spacing:.3em; font-size:10px; color:var(--muted); margin-top:24px; text-transform:uppercase;}
+
+  .highlight-box{
+    background:var(--parchment); border:1px solid var(--line); padding:26px 32px;
+    margin:24px 0; border-radius:2px;
+  }
+  .highlight-box.gold{
+    border-left:3px solid var(--gold); background:rgba(212,175,55,.04);
+  }
+  .highlight-box.green{
+    border-left:3px solid var(--accent-green); background:rgba(74,103,65,.04);
+  }
+
+  .stat-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; margin:24px 0;
+  }
+  .stat-card{
+    text-align:center; padding:24px 16px; background:var(--parchment);
+    border:1px solid var(--line);
+  }
+  .stat-card .number{
+    font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:600;
+    color:var(--primary); line-height:1;
+  }
+  .stat-card .label{
+    font-family:'Inter',sans-serif; text-transform:uppercase; letter-spacing:.2em;
+    font-size:9px; color:var(--muted); margin-top:8px; display:block;
+  }
+
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:14px;}
+  thead th{
+    font-family:'Inter',sans-serif; text-transform:uppercase; letter-spacing:.12em;
+    font-size:10px; color:var(--muted); text-align:left; padding:10px 14px;
+    border-bottom:2px solid var(--line); font-weight:500;
+  }
+  tbody td{padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tbody tr:last-child td{border-bottom:none;}
+  .text-right{text-align:right;}
+  .text-center{text-align:center;}
+
+  .total-row td{
+    font-weight:600; font-size:16px; border-top:2px solid var(--ink);
+    border-bottom:none; padding-top:14px;
+  }
+
+  .timeline{margin:20px 0;}
+  .timeline-day{margin:20px 0 30px;}
+  .timeline-day h4{color:var(--primary); margin-bottom:12px;}
+  .timeline-slot{
+    display:grid; grid-template-columns:110px 1fr; gap:12px;
+    padding:10px 0; border-bottom:1px solid rgba(228,221,205,.5);
+    font-size:14px;
+  }
+  .timeline-slot:last-child{border-bottom:none;}
+  .time{font-family:'Inter',sans-serif; font-size:12px; font-weight:500; color:var(--primary); padding-top:2px;}
+  .slot-detail .slot-title{font-weight:500; margin-bottom:2px;}
+  .slot-detail .slot-desc{color:var(--muted); font-size:13px; line-height:1.5;}
+
+  .checklist{list-style:none; padding:0; margin:14px 0;}
+  .checklist li{
+    padding:8px 0 8px 28px; position:relative; border-bottom:1px solid rgba(228,221,205,.4);
+    font-size:14px;
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li::before{
+    content:''; position:absolute; left:0; top:12px;
+    width:14px; height:14px; border:1.5px solid var(--gold); border-radius:2px;
+  }
+
+  .process-steps{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin:24px 0;
+  }
+  .process-step{text-align:center; padding:20px 12px;}
+  .step-num{
+    font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:600;
+    color:var(--gold); line-height:1;
+  }
+  .step-title{
+    font-family:'Inter',sans-serif; font-size:11px; font-weight:600;
+    text-transform:uppercase; letter-spacing:.1em; color:var(--ink);
+    margin:10px 0 4px;
+  }
+  .step-desc{font-size:13px; color:var(--muted); line-height:1.4;}
+  .step-arrow{
+    font-size:20px; color:var(--line); align-self:center; text-align:center;
+  }
+
+  .closing{
+    text-align:center; padding:40px 30px; margin-top:40px;
+    border-top:1px solid var(--line);
+  }
+  .closing .sig{
+    font-family:'Cormorant Garamond',serif; font-size:22px; font-style:italic;
+    color:var(--primary); margin-top:20px;
+  }
+
+  .footer-note{
+    font-family:'Inter',sans-serif; font-size:11px; color:var(--muted);
+    text-align:center; margin-top:40px; padding-top:20px;
+    border-top:1px solid var(--line); letter-spacing:.02em; line-height:1.6;
+  }
+
+  @media print{
+    body{background:#fff;}
+    .page{box-shadow:none; margin:0; padding:60px 50px;}
+    .stat-grid, .process-steps{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <p class="eyebrow">Proposal</p>
+    <h1>Professional Photoshoot</h1>
+    <p class="subtitle">For the Diggi Palace Website</p>
+    <div class="rule"></div>
+    <p class="date">Prepared &mdash; June 2025</p>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="highlight-box gold">
+    <p style="margin:0; font-size:16px; line-height:1.7;">
+      The Diggi Palace website currently holds <strong>200+ image placeholders</strong> and <strong>multiple video sections</strong> &mdash; all filled with temporary stock photography. This proposal covers a complete, professional photoshoot to replace every placeholder with original Diggi Palace imagery &mdash; transforming the website from a template into a true digital experience of the palace.
+    </p>
+  </div>
+
+  <!-- WHY SECTION -->
+  <h2>Why Professional Photography Matters</h2>
+
+  <p>For a heritage property like Diggi Palace, the website is often the <strong>first impression</strong> a guest receives &mdash; before they ever walk through the gates. Research shows:</p>
+
+  <ul>
+    <li><strong>Guests spend 60% of their browsing time looking at photos</strong> before reading a single word of text. The images decide whether they stay on the website or leave.</li>
+    <li><strong>Properties with professional photography receive 2&ndash;3x more direct bookings</strong> compared to those using stock or amateur images.</li>
+    <li><strong>Original photography builds trust.</strong> Travellers can spot stock photos instantly &mdash; and it signals that the property isn&rsquo;t confident enough to show itself. Diggi Palace deserves better.</li>
+    <li><strong>Cinematic video</strong> on a hotel website increases time-on-page by 80% and creates emotional connection that photos alone cannot.</li>
+  </ul>
+
+  <div class="highlight-box green">
+    <p style="margin:0;">
+      <strong>The goal:</strong> Every image on the Diggi Palace website will be an original, professionally shot and edited photograph of the actual property &mdash; its rooms, its restaurants, its gardens, its heritage. No more placeholders. No more borrowed imagery. This is Diggi Palace, as it truly is.
+    </p>
+  </div>
+
+  <!-- WHAT WE DELIVER -->
+  <h2>What You Receive</h2>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="number">200+</div>
+      <span class="label">Edited Photos</span>
+    </div>
+    <div class="stat-card">
+      <div class="number">3&ndash;4</div>
+      <span class="label">Cinematic Videos</span>
+    </div>
+    <div class="stat-card">
+      <div class="number">2</div>
+      <span class="label">Full Shoot Days</span>
+    </div>
+  </div>
+
+  <h4>Photo Distribution Across the Website</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Website Section</th>
+        <th>Current Placeholders</th>
+        <th class="text-center">Photos to Deliver</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Homepage</strong> &mdash; hero, sections, previews</td>
+        <td>27 placeholders</td>
+        <td class="text-center">25&ndash;30</td>
+      </tr>
+      <tr>
+        <td><strong>Rooms</strong> &mdash; Heritage Standard, Heritage Deluxe, Courtyard Suite, Palace Suite</td>
+        <td>24 placeholders (6 per room)</td>
+        <td class="text-center">30&ndash;35</td>
+      </tr>
+      <tr>
+        <td><strong>Restaurants</strong> &mdash; La Brass &amp; Baradari</td>
+        <td>12 placeholders</td>
+        <td class="text-center">20&ndash;25</td>
+      </tr>
+      <tr>
+        <td><strong>Culinary</strong> &mdash; food, kitchen, dining</td>
+        <td>7 placeholders</td>
+        <td class="text-center">15&ndash;20</td>
+      </tr>
+      <tr>
+        <td><strong>Experiences</strong> &mdash; cultural, wellness, heritage walks</td>
+        <td>17 placeholders</td>
+        <td class="text-center">20&ndash;25</td>
+      </tr>
+      <tr>
+        <td><strong>Celebrations &amp; Events</strong> &mdash; weddings, gatherings, venues</td>
+        <td>17 placeholders</td>
+        <td class="text-center">20&ndash;25</td>
+      </tr>
+      <tr>
+        <td><strong>History &amp; Heritage</strong></td>
+        <td>8 placeholders</td>
+        <td class="text-center">10&ndash;12</td>
+      </tr>
+      <tr>
+        <td><strong>Sustainability</strong></td>
+        <td>8 placeholders</td>
+        <td class="text-center">8&ndash;10</td>
+      </tr>
+      <tr>
+        <td><strong>Gallery</strong></td>
+        <td>49 images</td>
+        <td class="text-center">40&ndash;50</td>
+      </tr>
+      <tr>
+        <td><strong>Stay, Contact, Guest Love</strong></td>
+        <td>9 placeholders</td>
+        <td class="text-center">8&ndash;10</td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>Total</strong></td>
+        <td><strong>178+ placeholders</strong></td>
+        <td class="text-center"><strong>200&ndash;250</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><em>We deliver more photos than the current placeholder count so you have options to choose from for each section, plus extras for social media and future use.</em></p>
+
+  <h4>Cinematic Videos</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Video</th>
+        <th>Duration</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hero Video</strong></td>
+        <td>20&ndash;30 seconds</td>
+        <td>Homepage &mdash; first thing visitors see. Palace facade, gardens, golden light.</td>
+      </tr>
+      <tr>
+        <td><strong>Stay Experience</strong></td>
+        <td>15&ndash;20 seconds</td>
+        <td>Rooms section &mdash; walkthrough of suites, morning light, bed details.</td>
+      </tr>
+      <tr>
+        <td><strong>Dining Experience</strong></td>
+        <td>15&ndash;20 seconds</td>
+        <td>Restaurant section &mdash; food being served, ambience, evening setting.</td>
+      </tr>
+      <tr>
+        <td><strong>Palace Walkthrough</strong></td>
+        <td>20&ndash;30 seconds</td>
+        <td>Experiences/Gallery &mdash; cinematic tour through corridors, courtyards, arches.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PROCESS -->
+  <h2>How It Works</h2>
+
+  <p>The entire process from shoot to website is handled end-to-end. Here is what happens, step by step:</p>
+
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Test Shoot</div>
+      <div class="step-desc">Sample shoot to understand the spaces, lighting &amp; best angles</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Main Shoot</div>
+      <div class="step-desc">2 full days, sunrise to sunset &mdash; every corner of the palace covered</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Edit &amp; Grade</div>
+      <div class="step-desc">Each photo individually edited, videos colour graded with music</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Upload</div>
+      <div class="step-desc">Photos &amp; videos placed directly into the website, replacing all placeholders</div>
+    </div>
+  </div>
+
+  <!-- EQUIPMENT -->
+  <h2>Professional Equipment</h2>
+
+  <p>To do justice to a heritage property like Diggi Palace, we use professional-grade equipment rented specifically for this project:</p>
+
+  <div class="highlight-box">
+    <h4 style="margin-top:0;">Camera</h4>
+    <p><strong>Sony A7 IV</strong> &mdash; 33 megapixel full-frame professional camera. Exceptional detail, colour accuracy, and low-light performance. The same camera system used by architectural and hotel photographers worldwide. Shoots both high-resolution photos and cinematic 4K video.</p>
+
+    <h4>Lenses</h4>
+    <p><strong>Wide-Angle Zoom (15&ndash;35mm f/2.8)</strong> &mdash; Captures rooms, courtyards, and architecture in their full grandeur. Makes spaces look spacious, inviting, and true to life. Essential for interior and architectural photography.</p>
+    <p><strong>Portrait Lens (35mm f/1.4)</strong> &mdash; Creates beautiful background blur for food close-ups, detail shots, textures, and lifestyle moments. Performs exceptionally in low light &mdash; perfect for palace corridors and atmospheric restaurant interiors.</p>
+
+    <h4>Support</h4>
+    <p><strong>Professional Tripod</strong> &mdash; For razor-sharp room interiors, long-exposure evening shots, and steady architectural frames.</p>
+    <p><strong>Gimbal Stabiliser</strong> &mdash; For smooth, cinematic video movement &mdash; walkthrough shots, tracking shots through corridors and gardens.</p>
+  </div>
+
+  <!-- EDITING -->
+  <h2>Post-Production &amp; Editing</h2>
+
+  <p>The shoot is only half the work. Professional post-production is what separates a good photo from a stunning one. Every single image and video goes through a detailed editing process:</p>
+
+  <h4>Photo Editing &mdash; Adobe Lightroom Classic</h4>
+  <ul>
+    <li><strong>Colour grading</strong> &mdash; Consistent, warm, heritage tone across all images that matches the Diggi Palace brand</li>
+    <li><strong>Exposure &amp; white balance correction</strong> &mdash; Every photo properly exposed, natural colours even in mixed lighting</li>
+    <li><strong>Lens correction</strong> &mdash; Straight vertical lines in architecture, no wide-angle distortion</li>
+    <li><strong>Cropping &amp; composition</strong> &mdash; Each image framed for maximum impact on the website</li>
+    <li><strong>Detail enhancement</strong> &mdash; Sharpening textures, fabrics, architectural details</li>
+    <li><strong>Blemish removal</strong> &mdash; Minor distractions, wires, or imperfections cleaned up</li>
+    <li><strong>Web optimisation</strong> &mdash; Exported in multiple sizes for fast website loading without losing quality</li>
+  </ul>
+
+  <h4>Video Editing &mdash; DaVinci Resolve</h4>
+  <ul>
+    <li><strong>Cinematic colour grading</strong> &mdash; Matching the warm, heritage look of the photo series</li>
+    <li><strong>Smooth transitions</strong> &mdash; Professional cuts and fades between scenes</li>
+    <li><strong>Background music</strong> &mdash; Royalty-free, elegant music that fits the palace atmosphere</li>
+    <li><strong>Speed ramping</strong> &mdash; Slow-motion for dramatic moments, smooth speed for walkthroughs</li>
+    <li><strong>Export for web</strong> &mdash; Compressed for fast loading, optimised for autoplay on the website</li>
+  </ul>
+
+  <p><em>Estimated editing time: 5&ndash;7 working days. This is where the majority of post-shoot effort goes &mdash; 200+ photos, each individually processed.</em></p>
+
+  <!-- DETAILED SHOOT PLAN -->
+  <h2>Detailed 2-Day Shoot Plan</h2>
+
+  <p>Two full days, sunrise to sunset. Every section of the property is covered in a structured schedule to make the most of natural light and palace activity.</p>
+
+  <div class="timeline">
+    <div class="timeline-day">
+      <h4>Day 1 &mdash; Rooms, Restaurants &amp; Food</h4>
+
+      <div class="timeline-slot">
+        <div class="time">6:00 &ndash; 7:30 AM</div>
+        <div class="slot-detail">
+          <div class="slot-title">Golden Hour Exteriors</div>
+          <div class="slot-desc">Palace facade in warm morning light, entrance gate, garden paths, courtyard from elevated angle. The soft golden light of early morning creates the most dramatic, inviting images of the property exterior.</div>
+        </div>
+      </div>
+
+      <div class="timeline-slot">
+        <div class="time">8:00 &ndash; 11:30 AM</div>
+        <div class="slot-detail">
+          <div class="slot-title">Room Photography &mdash; All 4 Room Types</div>
+          <div class="slot-desc">Heritage Standard, Heritage Deluxe, Courtyard Suite, Palace Suite. Morning window light is ideal for interiors. Wide-angle shots of full room, detail shots of bed, bathroom, view from window, amenities, textures. 7&ndash;9 final images per room type.</div>
+        </div>
+      </div>
+
+      <div class="timeline-slot">
+        <div class="time">12:00 &ndash; 1:30 PM</div>
+        <div class="slot-detail">
+          <div class="slot-title">Restaurant Interiors &mdash; La Brass &amp; Baradari</div>
+          <div class="slot-desc">Empty restaurant setups, table arrangements, bar area, decor details, seating ambience. Overhead light works well for showing the full space. Both restaurants photographed with their unique character.</div>
+        </div>
+      </div>
+
+      <div class="timeline-slot">
+        <div class="time">2:00 &ndash; 4:30 PM</div>
+        <div class="slot-detail">
+          <div class="slot-title">Food Photography</div>
+          <div class="slot-desc">5&ndash;6 signature dishes, plated and styled. Close-up shots with shallow depth of field. Overhead flat-lays. Cooking process shots if kitchen permits. Drinks and beverages. This session requires the kitchen to prepare dishes specifically for the shoot.</div>
+        </div>
+      </div>
+
+      <div class="timeline-slot">
+        <div class="time">5:00 &ndash; 7:00 PM</div>
+        <div class="slot-detail">
+          <div class="slot-title">Evening Golden Hour &amp; Restaurant Ambience</div>
+          <div class="slot-desc">Restaurants with evening lighting &mdash; candles, warm lamps, the atmosphere guests actually experience at dinner. Courtyard in sunset light. Palace silhouette against evening sky.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-day">
+      <h4>Day 2 &mdash; Architecture, Experiences, Heritage &amp; Video</h4>
+
+      <div class="timeline-slot">
+        <div class="time">6:00 &ndash; 8:00 AM</div>
+        <div class="slot-detail">
+          <div class="slot-title">Sunrise Cinematic Video &amp; Exteriors</div>
+          <div class="slot-desc">Gimbal walkthrough of the palace waking up &mdash; gardens being watered, birds, first light on stone walls. Hero video footage. Additional exterior photos from angles not covered on Day 1.</div>
+        </div>
+      </div>
+
+      <div class="timeline-slot">
+        <div class="time">8:30 &ndash; 11:00 AM</div>
+        <div class="slot-detail">
+          <div class="slot-title">Architecture &amp; Heritage Details</div>
+          <div class="slot-desc">Arches, corridors, jharokhas, carved doors, stone textures, antique furniture, lamps, artwork. The details that make Diggi Palace a heritage property. History section photos. Sustainability features &mdash; gardens, traditional water systems, conservation elements.</div>
+        </div>
+      </div>
+
+      <div class="timeline-slot">
+        <div class="time">11:30 &ndash; 1:30 PM</div>
+        <div class="slot-detail">
+          <div class="slot-title">Event &amp; Celebration Spaces</div>
+          <div class="slot-desc">Event lawns, celebration setup areas, mandap locations, banquet spaces. Wide-angle shots showing capacity and grandeur. If any decor or setup is available, photograph it styled. These photos sell weddings and events.</div>
+        </div>
+      </div>
+
+      <div class="timeline-slot">
+        <div class="time">2:00 &ndash; 4:30 PM</div>
+        <div class="slot-detail">
+          <div class="slot-title">Experience &amp; Lifestyle</div>
+          <div class="slot-desc">Cultural experience areas, wellness/relaxation spaces, reading corners, terrace views, garden seating. Atmospheric shots that convey the feeling of being at Diggi Palace. Video clips of walkthrough, dining setup, courtyard life.</div>
+        </div>
+      </div>
+
+      <div class="timeline-slot">
+        <div class="time">5:00 &ndash; 7:00 PM</div>
+        <div class="slot-detail">
+          <div class="slot-title">Sunset Session &amp; Final Video</div>
+          <div class="slot-desc">Palace lit up in golden sunset. Terrace views. Final cinematic video &mdash; evening atmosphere, palace at dusk. Gallery-worthy closing shots. Blue hour photography if light permits.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREREQUISITES -->
+  <h2>What We Need from the Property</h2>
+
+  <p>To ensure the highest quality results in just 2 days, we request the following preparations before and during the shoot:</p>
+
+  <h3>Room Preparation</h3>
+  <ul class="checklist">
+    <li>All 4 room types made available and unoccupied during the morning of Day 1</li>
+    <li>Beds freshly made with crisp, ironed linens &mdash; no wrinkles, no creases</li>
+    <li>Bathrooms spotlessly clean &mdash; fresh towels folded and arranged</li>
+    <li>All personal items, cleaning supplies, and maintenance equipment removed</li>
+    <li>Curtains and blinds open for natural light (we will adjust as needed)</li>
+    <li>Any burnt-out lights replaced, all lamps functioning</li>
+    <li>Fresh flowers or a small welcome arrangement if available</li>
+  </ul>
+
+  <h3>Restaurant Preparation</h3>
+  <ul class="checklist">
+    <li>Tables set with best tableware, glasses, and napkin arrangements</li>
+    <li>Signature dishes (5&ndash;6) prepared and plated by the chef for the food shoot</li>
+    <li>Bar area stocked and styled (bottles facing forward, glasses arranged)</li>
+    <li>Menu cards or display items placed if part of the regular setting</li>
+    <li>Floor and seating area clean, chairs aligned</li>
+  </ul>
+
+  <h3>General Property</h3>
+  <ul class="checklist">
+    <li>Gardens trimmed and watered (ideally the day before the shoot)</li>
+    <li>Walkways, corridors, and common areas clean and clutter-free</li>
+    <li>Any ongoing construction or maintenance paused during shoot hours if possible</li>
+    <li>Pool area clean, water clear (if photographing the pool)</li>
+    <li>Event lawns mowed and cleared for wide-angle shots</li>
+    <li>Historical artefacts, paintings, and decor items dusted and well-placed</li>
+    <li>Any vehicles or parked cars removed from exterior photo areas</li>
+  </ul>
+
+  <h3>Coordination</h3>
+  <ul class="checklist">
+    <li>One point-of-contact from the palace available on both shoot days</li>
+    <li>Access to all areas including rooftop/terrace for elevated shots</li>
+    <li>Kitchen team available from 2:00&ndash;4:30 PM on Day 1 for food preparation</li>
+    <li>Staff availability if lifestyle/service shots are included</li>
+  </ul>
+
+  <!-- PRICING -->
+  <h2>Investment</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:50%;">Item</th>
+        <th>Details</th>
+        <th class="text-right">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Professional Equipment Rental</strong></td>
+        <td>Sony A7 IV body + wide-angle &amp; portrait lenses, gimbal, tripod, batteries &mdash; 2 days</td>
+        <td class="text-right">&nbsp;&#8377;9,200</td>
+      </tr>
+      <tr>
+        <td><strong>Photography &amp; Videography</strong></td>
+        <td>2 full shoot days, sunrise to sunset (~12 hours/day), all sections of the property</td>
+        <td class="text-right">&#8377;10,000</td>
+      </tr>
+      <tr>
+        <td><strong>Photo Editing &amp; Web Optimisation</strong></td>
+        <td>200+ photos &mdash; individual colour grading, retouching, cropping, multi-size web export (5&ndash;7 days post-production)</td>
+        <td class="text-right">&nbsp;&#8377;5,800</td>
+      </tr>
+      <tr>
+        <td><strong>Video Editing</strong></td>
+        <td>3&ndash;4 cinematic clips &mdash; colour grading, transitions, background music, web-optimised export</td>
+        <td class="text-right">&nbsp;&#8377;3,000</td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>Total</strong></td>
+        <td></td>
+        <td class="text-right"><strong>&#8377;28,000</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box gold" style="margin-top:24px;">
+    <p style="margin:0; text-align:center; font-size:15px;">
+      <strong>&#8377;28,000</strong> &mdash; all inclusive<br>
+      <span style="color:var(--muted); font-size:13px;">Equipment + 2-day shoot + full editing + website-ready delivery</span>
+    </p>
+  </div>
+
+  <h4>What&rsquo;s Included</h4>
+  <ul>
+    <li>200+ professionally edited, web-optimised photographs</li>
+    <li>3&ndash;4 cinematic video clips, ready for website embedding</li>
+    <li>All equipment and rental costs</li>
+    <li>Complete post-production (editing, grading, retouching)</li>
+    <li>Direct upload of all photos and videos to the Diggi Palace website</li>
+    <li>Multiple image sizes per photo (full resolution + web-optimised)</li>
+    <li>One round of revisions on selected images if needed</li>
+  </ul>
+
+  <h4>Delivery Timeline</h4>
+  <table>
+    <thead>
+      <tr><th>Milestone</th><th>Timeline</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Test shoot &amp; sample images</td><td>17 June 2025</td></tr>
+      <tr><td>Main shoot (2 days)</td><td>To be scheduled after test shoot approval</td></tr>
+      <tr><td>Final edited photos &amp; videos delivered</td><td>10 working days after main shoot</td></tr>
+      <tr><td>Website updated with all new imagery</td><td>2&ndash;3 days after delivery approval</td></tr>
+    </tbody>
+  </table>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <p style="font-size:17px; line-height:1.8; max-width:520px; margin:0 auto;">
+      Diggi Palace is not just a hotel &mdash; it is a piece of living history. Every arch, every courtyard, every lamp tells a story. The photography should do the same. When a guest visits the website, they should <em>feel</em> the palace before they ever arrive.
+    </p>
+    <p style="font-size:15px; color:var(--muted); margin-top:16px;">
+      That is what this photoshoot delivers &mdash; not just images, but the experience of Diggi Palace, captured and placed exactly where it belongs.
+    </p>
+    <div class="rule" style="width:40px; height:1px; background:var(--gold); margin:28px auto;"></div>
+    <p class="sig">Looking forward to creating something beautiful together.</p>
+  </div>
+
+  <div class="footer-note">
+    This proposal is valid for 30 days from the date of issue.<br>
+    For questions or to confirm, please reach out directly.
+  </div>
+
+</div>
+</body>
+</html>

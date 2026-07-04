@@ -23,8 +23,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link href="dist/tailwind.css?v=3" rel="stylesheet"/>
-    <link href="css/custom.css?v=17" rel="stylesheet"/>
-    <script src="js/main.js?v=6" defer></script>
+    <link href="css/custom.css?v=19" rel="stylesheet"/>
+    <script src="js/main.js?v=10" defer></script>
 <style>
 /* Letterbox card */
 .letterbox-card {
@@ -179,6 +179,7 @@
   {
    "@type": "AggregateRating",
    "@id": "https://www.hoteldiggipalace.com/guest-love.html#rating",
+   "_placeholder_note": "PLACEHOLDER VALUES — replace ratingValue/reviewCount with the live figures from the Google Business Profile before launch. Mismatched numbers risk a Google manual spam action.",
    "itemReviewed": {
     "@type": "Hotel",
     "name": "Diggi Palace",
@@ -192,6 +193,16 @@
  ]
 }
 </script>
+<!--
+  Deliberately no individual "Review" schema items on this page yet.
+  The review cards below are visual placeholders ("Screenshot of Google Review") — no real
+  reviewer names or quotes exist to mark up. Adding fabricated Review objects here would create
+  a mismatch between structured data and visible content, which Google's spam policies treat as
+  fake-review markup. Once the real Google/Instagram screenshots are in, add matching
+  "review": [{ "@type": "Review", "author": {...}, "reviewBody": "...", "reviewRating": {...} }]
+  entries here — one per real review, copied verbatim from the source.
+-->
+
 </head>
 <body class="bg-surface text-on-surface font-body-md overflow-x-hidden nav-always-scrolled">
 <!-- TopNavBar -->
@@ -522,6 +533,7 @@
 <a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="culinary.html">Dining</a>
 <a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="gallery/index.html">Gallery</a>
 <a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="guest-love.html">Guest Voices</a>
+<a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="blog.html">Journal</a>
 <a class="font-label-caps text-[11px] tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors uppercase" href="contact.html">Contact</a>
 </nav>
 <div class="flex gap-7 mt-12">
