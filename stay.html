@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link href="dist/tailwind.css?v=3" rel="stylesheet"/>
+    <link href="dist/tailwind.css?v=4" rel="stylesheet"/>
     <link href="css/custom.css?v=19" rel="stylesheet"/>
     <script src="js/main.js?v=10" defer></script>
 
@@ -354,33 +354,74 @@
 
 <!-- Footer -->
 <footer class="bg-surface-container-low border-t border-outline-variant/30">
-    <div class="max-w-max-width mx-auto px-margin-desktop py-12 md:py-20 flex flex-col items-center gap-12 text-center">
-        <div class="font-headline-md text-headline-md text-primary tracking-widest uppercase font-ornamental text-[24px]">
-            Diggi Palace
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-16 gap-y-8 w-full max-w-3xl">
-            <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="gallery/index.html">Gallery</a>
-                <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="guest-love.html">Guest Voices</a>
-            <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="sustainability.html">Sustainability</a>
-            <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="contact.html">Contact</a>
-            <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="guest-love.html">Press</a>
-            <a class="font-label-caps text-label-caps text-on-secondary-fixed-variant hover:text-primary transition-colors text-[12px]" href="blog.html">Journal</a>
-        </div>
-        <div class="flex gap-8 mt-4">
-            <a class="text-secondary hover:text-primary transition-colors" href="#">
-                <svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
-            </a>
-            <a class="text-secondary hover:text-primary transition-colors" href="#">
-                <svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.669-.072-4.948-.2-4.358-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-            </a>
-            <a class="text-secondary hover:text-primary transition-colors" href="#">
-                <svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>
-            </a>
-        </div>
-        <p class="font-body-md text-secondary max-w-lg mx-auto opacity-70">
-            © 2026 Diggi Palace Heritage Hotels. All rights reserved. Part of the Heritage Collection of Jaipur.
-        </p>
-    </div>
+<div class="max-w-max-width mx-auto px-margin-desktop pt-16 md:pt-24 pb-10">
+
+<!-- Upper: brand + navigation columns -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 pb-14 md:pb-16 border-b border-outline-variant/30">
+
+<!-- Brand -->
+<div class="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+<a href="index.html" class="block mb-5">
+<span class="font-display-lg text-[24px] md:text-[28px] text-primary tracking-[0.18em] uppercase block">Diggi Palace</span>
+<span class="font-label-caps text-[9px] tracking-[0.24em] text-on-surface-variant/70 uppercase block mt-2">Heritage Palace Hotel &middot; Since 1860</span>
+</a>
+<div class="w-10 h-px bg-primary/40 mb-5"></div>
+<address class="not-italic font-body-md text-[13px] text-on-surface-variant leading-[1.9]">
+Shivaji Marg, C-Scheme<br>
+Jaipur 302004, Rajasthan, India
+</address>
+</div>
+
+<!-- Explore -->
+<div class="md:col-span-2 md:col-start-6 text-center md:text-left">
+<h3 class="font-label-caps text-[10px] tracking-[0.24em] text-primary uppercase mb-6">Explore</h3>
+<ul class="space-y-3">
+<li><a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300" href="stay.html">Rooms &amp; Suites</a></li>
+<li><a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300" href="culinary.html">Dining</a></li>
+<li><a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300" href="experiences.html">Experiences</a></li>
+<li><a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300" href="celebrations.html">Weddings &amp; Celebrations</a></li>
+<li><a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300" href="events.html">Events</a></li>
+</ul>
+</div>
+
+<!-- Discover -->
+<div class="md:col-span-2 text-center md:text-left">
+<h3 class="font-label-caps text-[10px] tracking-[0.24em] text-primary uppercase mb-6">Discover</h3>
+<ul class="space-y-3">
+<li><a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300" href="history.html">Our History</a></li>
+<li><a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300" href="blog.html">The Journal</a></li>
+<li><a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300" href="guest-love.html">Guest Voices</a></li>
+<li><a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300" href="gallery/index.html">Gallery</a></li>
+<li><a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300" href="sustainability.html">Sustainability</a></li>
+</ul>
+</div>
+
+<!-- Reservations -->
+<div class="md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+<h3 class="font-label-caps text-[10px] tracking-[0.24em] text-primary uppercase mb-6">Reservations</h3>
+<a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300 block mb-3" href="tel:+919352145034">+91 93521-45034</a>
+<a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors duration-300 block mb-8" href="mailto:crs@hoteldiggipalace.com">crs@hoteldiggipalace.com</a>
+<button onclick="window.location.href='mockreservation.html'" class="border border-primary/50 text-primary px-10 py-3.5 font-label-caps tracking-[0.2em] uppercase text-[11px] hover:bg-primary hover:text-on-primary transition-all duration-500">Book Your Stay</button>
+</div>
+
+</div>
+
+<!-- Lower: legal bar -->
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8">
+<p class="font-label-caps text-[10px] tracking-[0.16em] text-on-surface-variant/60 uppercase order-2 md:order-1">&copy; 2026 Diggi Palace. All rights reserved.</p>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-3 order-1 md:order-2">
+<a class="font-label-caps text-[10px] tracking-[0.16em] text-on-surface-variant/70 hover:text-primary transition-colors duration-300 uppercase" href="contact.html">Contact</a>
+<a class="font-label-caps text-[10px] tracking-[0.16em] text-on-surface-variant/70 hover:text-primary transition-colors duration-300 uppercase" href="https://www.google.com/maps/search/?api=1&query=Hotel+Diggi+Palace+Shivaji+Marg+C-Scheme+Jaipur" target="_blank" rel="noopener">Location</a>
+<a class="font-label-caps text-[10px] tracking-[0.16em] text-on-surface-variant/70 hover:text-primary transition-colors duration-300 uppercase" href="privacy-policy.html">Privacy Policy</a>
+</div>
+<div class="flex gap-5 order-3">
+<!-- PLACEHOLDER: social profile URLs not yet provided — replace # with real Instagram/Facebook links -->
+<a href="#" aria-label="Instagram" class="text-on-surface-variant/70 hover:text-primary transition-colors duration-300"><svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zm0 1.95c-3.14 0-3.51.01-4.75.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71-.06 1.24-.07 1.61-.07 4.75s.01 3.51.07 4.75c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.04-.9-.19-1.39-.32-1.71-.17-.43-.37-.74-.69-1.06-.32-.32-.63-.52-1.06-.69-.32-.13-.81-.28-1.71-.32-1.24-.06-1.61-.07-4.75-.07zm0 3.32a4.57 4.57 0 110 9.14 4.57 4.57 0 010-9.14zm0 7.54a2.97 2.97 0 100-5.94 2.97 2.97 0 000 5.94zm5.82-7.74a1.07 1.07 0 11-2.14 0 1.07 1.07 0 012.14 0z"/></svg></a>
+<a href="#" aria-label="Facebook" class="text-on-surface-variant/70 hover:text-primary transition-colors duration-300"><svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.12 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.25h3.32l-.53 3.49h-2.79V24C19.61 23.08 24 18.09 24 12.07z"/></svg></a>
+</div>
+</div>
+
+</div>
 </footer>
 </body>
 </html>
