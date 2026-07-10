@@ -415,6 +415,14 @@
 <h3 class="text-on-surface font-headline-lg">Grub Fest</h3>
 <button class="font-label-caps text-primary tracking-widest border-b border-transparent hover:border-primary transition-all text-body-md" onclick="openEventModal('grubfest')">DISCOVER MORE</button>
 </div>
+<div class="event-list-item flex justify-between items-center px-4 py-16">
+<h3 class="text-on-surface font-headline-lg">Jarocha Art Fest</h3>
+<button class="font-label-caps text-primary tracking-widest border-b border-transparent hover:border-primary transition-all text-body-md" onclick="openEventModal('artfest')">DISCOVER MORE</button>
+</div>
+<div class="event-list-item flex justify-between items-center px-4 py-16">
+<h3 class="text-on-surface font-headline-lg">Music Concerts</h3>
+<button class="font-label-caps text-primary tracking-widest border-b border-transparent hover:border-primary transition-all text-body-md" onclick="openEventModal('music')">DISCOVER MORE</button>
+</div>
 <div class="mt-12 text-center">
 <p class="font-body-md text-secondary/40 italic font-light">and many more...</p>
 </div>
@@ -433,10 +441,31 @@
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
                         Acclaimed as one of the most sophisticated Holi celebrations in India, our gathering is reserved exclusively for international residents and invited guests. A safe, vibrant, and traditional environment where organic pigments and folk rhythms define the day.
                     </p>
-<button class="group flex items-center gap-4 font-label-caps text-label-caps text-primary">
+<button class="group flex items-center gap-4 font-label-caps text-label-caps text-primary" onclick="openEventModal('holi')">
 <span class="">VIEW THE GALLERY</span>
 <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_right_alt</span>
 </button>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-low py-16 md:py-24 overflow-hidden">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<div class="relative grid md:grid-cols-2 gap-20 items-center">
+<div class="fade-in-on-scroll fade-in-up order-2 md:order-1">
+<span class="font-label-caps text-label-caps text-primary tracking-widest mb-6 block">THE FESTIVAL OF LIGHTS</span>
+<h3 class="font-headline-lg text-headline-lg mb-8">Diwali, In Its Truest Royal Form</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                        Thousands of oil lamps trace the courtyards, block-printing artists work live beneath the arches, and a royal Rajasthani dinner welcomes guests from around the world — an evening that lingers long after the diyas are lit.
+                    </p>
+<button class="group flex items-center gap-4 font-label-caps text-label-caps text-primary" onclick="openEventModal('diwali')">
+<span class="">VIEW THE GALLERY</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_right_alt</span>
+</button>
+</div>
+<div class="relative aspect-[4/5] overflow-hidden group order-1 md:order-2">
+<img loading="lazy" decoding="async" alt="Diwali Celebration" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg"/>
+<div class="absolute inset-0 border-[24px] border-surface-container-low/50"></div>
 </div>
 </div>
 </div>
@@ -495,8 +524,7 @@ A haven of craftsmanship with hand-woven textiles, heritage-inspired silhouettes
 <section class="py-16 md:py-24 px-margin-desktop w-full relative bg-cover bg-left" style="background-image: url('public/images/events/events-background.png');">
 <div class="absolute inset-0 bg-[#faf9f6]/60 z-0"></div>
 <div class="max-w-max-width mx-auto relative z-10">
-
-
+</div>
 </section>
 </main>
 <footer class="bg-surface-container-low border-t border-outline-variant/30">
@@ -574,8 +602,11 @@ Jaipur 302004, Rajasthan, India
 <div class="absolute inset-0 modal-backdrop" onclick="closeEventModal()"></div>
 <div class="relative bg-background max-w-5xl w-full max-h-[90vh] overflow-y-auto flex flex-col md:flex-row animate-in fade-in zoom-in duration-300">
 <button class="absolute top-6 right-6 z-20 material-symbols-outlined text-3xl text-on-surface-variant hover:text-primary transition-colors" onclick="closeEventModal()">close</button>
-<div class="w-full md:w-1/2 bg-surface-container">
+<div class="w-full md:w-1/2 bg-surface-container relative group">
 <img loading="lazy" decoding="async" class="w-full h-full object-cover min-h-[300px]" id="modalImage" src=""/>
+<button class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-background/70 hover:bg-background text-on-surface w-9 h-9 flex items-center justify-center rounded-full material-symbols-outlined hidden" id="modalPrev" onclick="modalNav(-1)">chevron_left</button>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-background/70 hover:bg-background text-on-surface w-9 h-9 flex items-center justify-center rounded-full material-symbols-outlined hidden" id="modalNext" onclick="modalNav(1)">chevron_right</button>
+<div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 font-label-caps text-[10px] tracking-widest text-white bg-background/50 px-2 py-1 hidden" id="modalCounter"></div>
 </div>
 <div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
 <h2 class="font-headline-lg text-headline-lg text-primary mb-8" id="modalTitle"></h2>
@@ -711,21 +742,48 @@ Jaipur 302004, Rajasthan, India
     window.addEventListener('resize', () => { if (track) setCarouselIndex(activeIndex); });
 
     // Modal Logic
+    // NOTE: each "images" array can hold as many photos as needed — drop real files into
+    // public/images/events/<event-id>/ and list their paths here to replace these placeholders.
     const events = {
-        holi: { title: "Holi: The Festival of Colors", description: "Our flagship event is internationally acclaimed, hosting global guests in a refined, safe, and deeply traditional celebration. Using only organic pigments and folk music.", image: "mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg" },
-        jlf: { title: "Jaipur Literature Festival", description: "The palace serves as the spiritual home of the literary world, hosting exclusive salons and private author retreats during JLF week.", image: "mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg" },
-        heritage: { title: "Rajasthan Heritage Week", description: "A cinematic showcase of handloom and couture bringing together master weavers and international designers under the stars.", image: "mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg" },
-        fdci: { title: "FDCI Showcases", description: "Major fashion spectacles that utilize our heritage courtyards as living stages for the country's leading couturiers.", image: "mock aman images /imageye___-_imgi_95_Amanbagh-Amansanti-Gardener_2.jpg" },
-        grubfest: { title: "Grub Fest", description: "A premier culinary journey bringing together gourmet delicacies, guest chefs, and artisan producers.", image: "mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg" },
-        diwali: { title: "Diwali Lights", description: "Experience the Festival of Lights in its truest royal form. Our gardens are transformed by thousands of traditional oil lamps.", image: "mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg" },
-        newyear: { title: "Imperial New Year's Eve", description: "A black-tie event featuring vintage glamour, fine dining, and orchestral performances in our grandest ballroom.", image: "mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg" }
+        holi: { title: "Holi: The Festival of Colors", description: "Our flagship event is internationally acclaimed, hosting global guests in a refined, safe, and deeply traditional celebration. Using only organic pigments and folk music.", images: ["mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg", "mock aman images /imageye___-_imgi_168_Amanbagh-Experience-Bhangarh.jpg", "mock aman images /imageye___-_imgi_244_Amanbagh-Group-Portrait_0.jpg"] },
+        jlf: { title: "Jaipur Literature Festival", description: "The palace serves as the spiritual home of the literary world, hosting exclusive salons and private author retreats during JLF week.", images: ["mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg"] },
+        heritage: { title: "Rajasthan Heritage Week", description: "A cinematic showcase of handloom and couture bringing together master weavers and international designers under the stars.", images: ["mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg", "mock aman images /imageye___-_imgi_95_Amanbagh-Amansanti-Gardener_2.jpg"] },
+        fdci: { title: "FDCI Showcases", description: "Major fashion spectacles that utilize our heritage courtyards as living stages for the country's leading couturiers.", images: ["mock aman images /imageye___-_imgi_95_Amanbagh-Amansanti-Gardener_2.jpg", "mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg"] },
+        grubfest: { title: "Grub Fest", description: "A premier culinary journey bringing together gourmet delicacies, guest chefs, and artisan producers.", images: ["mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg"] },
+        diwali: { title: "Diwali Lights", description: "Experience the Festival of Lights in its truest royal form. Our gardens are transformed by thousands of traditional oil lamps, royal dining, block-printing and elephant encounters for guests from around the world.", images: ["mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg", "mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg", "mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg"] },
+        newyear: { title: "Imperial New Year's Eve", description: "A black-tie event featuring vintage glamour, fine dining, Rajasthani folk dance, live fire performances and a DJ set into the night.", images: ["mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg", "mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg"] },
+        artfest: { title: "Jarocha Art Fest", description: "A hands-on celebration of Rajasthani miniature and Jarocha window art — guests of all ages paint, learn traditional motifs, and take home a certificate of participation.", images: ["mock aman images /imageye___-_imgi_168_Amanbagh-Experience-Bhangarh.jpg"] },
+        music: { title: "Music Concerts", description: "Intimate classical and traditional Rajasthani music evenings, held occasionally beneath the palace courtyards for a select circle of guests.", images: ["mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg"] }
     };
+
+    let currentEventId = null;
+    let currentImageIndex = 0;
+
+    function renderModalImage() {
+        const event = events[currentEventId];
+        const imgs = event.images;
+        document.getElementById('modalImage').src = imgs[currentImageIndex];
+        const multi = imgs.length > 1;
+        document.getElementById('modalPrev').classList.toggle('hidden', !multi);
+        document.getElementById('modalNext').classList.toggle('hidden', !multi);
+        const counter = document.getElementById('modalCounter');
+        counter.classList.toggle('hidden', !multi);
+        if (multi) counter.innerText = (currentImageIndex + 1) + ' / ' + imgs.length;
+    }
+
+    function modalNav(dir) {
+        const imgs = events[currentEventId].images;
+        currentImageIndex = (currentImageIndex + dir + imgs.length) % imgs.length;
+        renderModalImage();
+    }
 
     function openEventModal(eventId) {
         const event = events[eventId];
+        currentEventId = eventId;
+        currentImageIndex = 0;
         document.getElementById('modalTitle').innerText = event.title;
         document.getElementById('modalDescription').innerText = event.description;
-        document.getElementById('modalImage').src = event.image;
+        renderModalImage();
         document.getElementById('eventModal').classList.remove('hidden');
         document.body.style.overflow = 'hidden';
     }
