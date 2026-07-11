@@ -115,7 +115,7 @@
 }
 </script>
 </head>
-<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-white overflow-x-hidden">
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-white overflow-x-hidden" data-page="baradari">
     <!-- TopNavBar -->
     <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
         <nav class="flex justify-between items-center px-margin-desktop py-4 md:py-6 w-full gap-2">
@@ -144,7 +144,7 @@
         <!-- Hero Section -->
         <header class="relative h-screen w-full overflow-hidden flex items-center justify-center text-center">
             <div class="absolute inset-0 z-0">
-                <img fetchpriority="high" alt="Baradari Restaurant Main View" class="w-full h-full object-cover hero-zoom" src="mock aman images /imageye___-_imgi_296_22-11-Amanbagh-Experience-Bhangarh-Yoga-1999.jpg"/>
+                <img fetchpriority="high" alt="Baradari Restaurant Main View" class="w-full h-full object-cover hero-zoom" data-media-slot="baradari.hero" src="mock aman images /imageye___-_imgi_296_22-11-Amanbagh-Experience-Bhangarh-Yoga-1999.jpg"/>
                 <div class="absolute inset-0 bg-black/30 bg-gradient-to-b from-black/40 via-transparent to-black/20"></div>
             </div>
             <div class="relative z-10 px-margin-mobile max-w-4xl text-white reveal-on-scroll">
@@ -181,15 +181,15 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-margin-desktop reveal-on-scroll">
                 <div class="aspect-[16/9] overflow-hidden group relative">
-                    <img loading="lazy" decoding="async" alt="The Courtyard Entrance" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg"/>
+                    <img loading="lazy" decoding="async" alt="The Courtyard Entrance" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-media-slot="baradari.setting-gallery" src="mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg"/>
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 </div>
                 <div class="aspect-[16/9] overflow-hidden group relative">
-                    <img loading="lazy" decoding="async" alt="Traditional Jaipuri Decor" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="mock aman images /imgi_107_pool-pavilion.jpg"/>
+                    <img loading="lazy" decoding="async" alt="Traditional Jaipuri Decor" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-media-slot="baradari.setting-gallery" src="mock aman images /imgi_107_pool-pavilion.jpg"/>
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 </div>
                 <div class="aspect-[16/9] overflow-hidden group relative">
-                    <img loading="lazy" decoding="async" alt="Regal Arches & Gardens" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg"/>
+                    <img loading="lazy" decoding="async" alt="Regal Arches & Gardens" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-media-slot="baradari.setting-gallery" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg"/>
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 </div>
             </div>
@@ -211,10 +211,10 @@
                 </div>
                 <div class="md:col-span-7 grid grid-cols-2 gap-6 h-fit reveal-on-scroll">
                     <div class="mt-12">
-                        <img loading="lazy" decoding="async" alt="Gourmet Plating" class="w-full aspect-[3/4] object-cover" src="mock aman images /imgi_107_pool-pavilion.jpg"/>
+                        <img loading="lazy" decoding="async" alt="Gourmet Plating" class="w-full aspect-[3/4] object-cover" data-media-slot="baradari.gourmet-plating" src="mock aman images /imgi_107_pool-pavilion.jpg"/>
                     </div>
                     <div>
-                        <img loading="lazy" decoding="async" alt="Fresh Ingredients" class="w-full aspect-[3/4] object-cover" src="mock aman images /imageye___-_imgi_252_Amanbagh%2C India - Main Building%2C Exterior Detail_0.jpg"/>
+                        <img loading="lazy" decoding="async" alt="Fresh Ingredients" class="w-full aspect-[3/4] object-cover" data-media-slot="baradari.fresh-ingredients" src="mock aman images /imageye___-_imgi_252_Amanbagh%2C India - Main Building%2C Exterior Detail_0.jpg"/>
                     </div>
                 </div>
             </div>
@@ -292,5 +292,7 @@ Jaipur 302004, Rajasthan, India
 </div>
 </footer>
     <script src="js/main.js?v=10"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/media-loader.js"></script>
 </body>
 </html>

@@ -337,7 +337,7 @@
 }
 </script>
 </head>
-<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container" data-page="events">
 <!-- TopNavBar -->
 <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
 <nav class="flex justify-between items-center px-margin-desktop py-4 md:py-6 w-full gap-2">
@@ -366,7 +366,7 @@
 </nav>
 </header>
 <header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
-<img fetchpriority="high" alt="Signature Event Hero" class="absolute inset-0 w-full h-full object-cover scale-105" src="mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg"/>
+<img fetchpriority="high" alt="Signature Event Hero" data-media-slot="events.hero" class="absolute inset-0 w-full h-full object-cover scale-105" src="mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg"/>
 <div class="absolute inset-0 bg-black/30 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
 <div class="relative z-10 text-center px-4 max-w-4xl fade-in-up">
 <span class="font-label-caps text-label-caps text-primary-fixed tracking-[0.16em] mb-6 block uppercase">THE SOCIAL CALENDAR</span>
@@ -600,15 +600,15 @@ Jaipur 302004, Rajasthan, India
 <!-- Event Modal -->
 <div class="fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-12 hidden" id="eventModal">
 <div class="absolute inset-0 modal-backdrop" onclick="closeEventModal()"></div>
-<div class="relative bg-background max-w-5xl w-full max-h-[90vh] overflow-y-auto flex flex-col md:flex-row animate-in fade-in zoom-in duration-300">
+<div class="relative bg-background max-w-5xl w-full max-h-[90vh] md:h-[600px] flex flex-col md:flex-row animate-in fade-in zoom-in duration-300">
 <button class="absolute top-6 right-6 z-20 material-symbols-outlined text-3xl text-on-surface-variant hover:text-primary transition-colors" onclick="closeEventModal()">close</button>
-<div class="w-full md:w-1/2 bg-surface-container relative group">
-<img loading="lazy" decoding="async" class="w-full h-full object-cover min-h-[300px]" id="modalImage" src=""/>
+<div class="w-full md:w-1/2 bg-surface-container relative group aspect-[4/3] md:aspect-auto md:h-full flex-shrink-0">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" id="modalImage" src=""/>
 <button class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-background/70 hover:bg-background text-on-surface w-9 h-9 flex items-center justify-center rounded-full material-symbols-outlined hidden" id="modalPrev" onclick="modalNav(-1)">chevron_left</button>
 <button class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-background/70 hover:bg-background text-on-surface w-9 h-9 flex items-center justify-center rounded-full material-symbols-outlined hidden" id="modalNext" onclick="modalNav(1)">chevron_right</button>
 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 font-label-caps text-[10px] tracking-widest text-white bg-background/50 px-2 py-1 hidden" id="modalCounter"></div>
 </div>
-<div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+<div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center overflow-y-auto">
 <h2 class="font-headline-lg text-headline-lg text-primary mb-8" id="modalTitle"></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed" id="modalDescription"></p>
 <div class="mt-12 pt-8 border-t border-outline-variant">
@@ -617,6 +617,9 @@ Jaipur 302004, Rajasthan, India
 </div>
 </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/media-loader.js"></script>
 <script src="js/main.js?v=10"></script>
 <script>
     const carouselItems = [
@@ -746,14 +749,14 @@ Jaipur 302004, Rajasthan, India
     // public/images/events/<event-id>/ and list their paths here to replace these placeholders.
     const events = {
         holi: { title: "Holi: The Festival of Colors", description: "Our flagship event is internationally acclaimed, hosting global guests in a refined, safe, and deeply traditional celebration. Using only organic pigments and folk music.", images: ["mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg", "mock aman images /imageye___-_imgi_168_Amanbagh-Experience-Bhangarh.jpg", "mock aman images /imageye___-_imgi_244_Amanbagh-Group-Portrait_0.jpg"] },
-        jlf: { title: "Jaipur Literature Festival", description: "The palace serves as the spiritual home of the literary world, hosting exclusive salons and private author retreats during JLF week.", images: ["mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg"] },
-        heritage: { title: "Rajasthan Heritage Week", description: "A cinematic showcase of handloom and couture bringing together master weavers and international designers under the stars.", images: ["mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg", "mock aman images /imageye___-_imgi_95_Amanbagh-Amansanti-Gardener_2.jpg"] },
-        fdci: { title: "FDCI Showcases", description: "Major fashion spectacles that utilize our heritage courtyards as living stages for the country's leading couturiers.", images: ["mock aman images /imageye___-_imgi_95_Amanbagh-Amansanti-Gardener_2.jpg", "mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg"] },
-        grubfest: { title: "Grub Fest", description: "A premier culinary journey bringing together gourmet delicacies, guest chefs, and artisan producers.", images: ["mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg"] },
+        jlf: { title: "Jaipur Literature Festival", description: "The palace serves as the spiritual home of the literary world, hosting exclusive salons and private author retreats during JLF week.", images: ["mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg", "mock aman images /imageye___-_imgi_244_Amanbagh-Group-Portrait_0.jpg", "mock aman images /imgi_79_exterior-amansanti.jpg"] },
+        heritage: { title: "Rajasthan Heritage Week", description: "A cinematic showcase of handloom and couture bringing together master weavers and international designers under the stars.", images: ["mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg", "mock aman images /imageye___-_imgi_95_Amanbagh-Amansanti-Gardener_2.jpg", "mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg"] },
+        fdci: { title: "FDCI Showcases", description: "Major fashion spectacles that utilize our heritage courtyards as living stages for the country's leading couturiers.", images: ["mock aman images /imageye___-_imgi_95_Amanbagh-Amansanti-Gardener_2.jpg", "mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg", "mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg"] },
+        grubfest: { title: "Grub Fest", description: "A premier culinary journey bringing together gourmet delicacies, guest chefs, and artisan producers.", images: ["mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg", "mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg", "mock aman images /imageye___-_imgi_95_Amanbagh-Amansanti-Gardener_2.jpg"] },
         diwali: { title: "Diwali Lights", description: "Experience the Festival of Lights in its truest royal form. Our gardens are transformed by thousands of traditional oil lamps, royal dining, block-printing and elephant encounters for guests from around the world.", images: ["mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg", "mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg", "mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg"] },
-        newyear: { title: "Imperial New Year's Eve", description: "A black-tie event featuring vintage glamour, fine dining, Rajasthani folk dance, live fire performances and a DJ set into the night.", images: ["mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg", "mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg"] },
-        artfest: { title: "Jarocha Art Fest", description: "A hands-on celebration of Rajasthani miniature and Jarocha window art — guests of all ages paint, learn traditional motifs, and take home a certificate of participation.", images: ["mock aman images /imageye___-_imgi_168_Amanbagh-Experience-Bhangarh.jpg"] },
-        music: { title: "Music Concerts", description: "Intimate classical and traditional Rajasthani music evenings, held occasionally beneath the palace courtyards for a select circle of guests.", images: ["mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg"] }
+        newyear: { title: "Imperial New Year's Eve", description: "A black-tie event featuring vintage glamour, fine dining, Rajasthani folk dance, live fire performances and a DJ set into the night.", images: ["mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg", "mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg", "mock aman images /imageye___-_imgi_244_Amanbagh-Group-Portrait_0.jpg"] },
+        artfest: { title: "Jarocha Art Fest", description: "A hands-on celebration of Rajasthani miniature and Jarocha window art — guests of all ages paint, learn traditional motifs, and take home a certificate of participation.", images: ["mock aman images /imageye___-_imgi_168_Amanbagh-Experience-Bhangarh.jpg", "mock aman images /imgi_252_exterior-detail.jpg", "mock aman images /imageye___-_imgi_296_22-11-Amanbagh-Experience-Bhangarh-Yoga-1999.jpg"] },
+        music: { title: "Music Concerts", description: "Intimate classical and traditional Rajasthani music evenings, held occasionally beneath the palace courtyards for a select circle of guests.", images: ["mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg", "mock aman images /imageye___-_imgi_95_Amanbagh-Amansanti-Gardener_2.jpg", "mock aman images /imgi_79_exterior-amansanti.jpg"] }
     };
 
     let currentEventId = null;
@@ -792,6 +795,18 @@ Jaipur 302004, Rajasthan, India
         document.getElementById('eventModal').classList.add('hidden');
         document.body.style.overflow = 'auto';
     }
+
+    // Swap in real photos from the admin CMS once loaded, replacing the placeholders above.
+    document.addEventListener('media-galleries-ready', function () {
+        const galleries = window.__mediaGalleries || {};
+        Object.keys(events).forEach(function (key) {
+            const cmsKey = 'events.' + key;
+            if (galleries[cmsKey] && galleries[cmsKey].length) {
+                events[key].images = galleries[cmsKey];
+                if (currentEventId === key) renderModalImage();
+            }
+        });
+    });
 
     const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

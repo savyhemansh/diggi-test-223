@@ -53,7 +53,7 @@
 }
 </script>
 </head>
-<body class="bg-surface text-on-surface font-body-md overflow-x-hidden nav-always-scrolled">
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden nav-always-scrolled" data-page="sustainability">
 <!-- TopNavBar -->
 <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
 <nav class="flex justify-between items-center px-margin-desktop py-4 md:py-6 w-full gap-2">
@@ -339,14 +339,14 @@
             <div class="space-y-3">
                 <div class="grid grid-cols-2 gap-3">
                     <div class="aspect-[3/4] overflow-hidden">
-                        <img loading="lazy" decoding="async" alt="A table laid with hand-thrown blue pottery and block-printed linen" class="w-full h-full object-cover" src="./public/images/homepage/terrace%20baithak.png"/>
+                        <img loading="lazy" decoding="async" alt="A table laid with hand-thrown blue pottery and block-printed linen" data-media-slot="sustainability.quiet-1" class="w-full h-full object-cover" src="./public/images/homepage/terrace%20baithak.png"/>
                     </div>
                     <div class="aspect-[3/4] overflow-hidden">
-                        <img loading="lazy" decoding="async" alt="The palace façade, kept living in its own old materials" class="w-full h-full object-cover" src="./public/images/homepage/section%203.png"/>
+                        <img loading="lazy" decoding="async" alt="The palace façade, kept living in its own old materials" data-media-slot="sustainability.quiet-2" class="w-full h-full object-cover" src="./public/images/homepage/section%203.png"/>
                     </div>
                 </div>
                 <div class="aspect-[3/2] overflow-hidden">
-                    <img loading="lazy" decoding="async" alt="Latticed windows and shaded façades that cool and light the rooms by design" class="w-full h-full object-cover" src="./public/images/homepage/hawa%20mahal.png"/>
+                    <img loading="lazy" decoding="async" alt="Latticed windows and shaded façades that cool and light the rooms by design" data-media-slot="sustainability.quiet-3" class="w-full h-full object-cover" src="./public/images/homepage/hawa%20mahal.png"/>
                 </div>
             </div>
 
@@ -390,7 +390,7 @@
                 </ul>
             </div>
             <div class="aspect-[3/2] overflow-hidden">
-                <img loading="lazy" decoding="async" alt="The palace's ancestral gardens, tended by local hands" class="w-full h-full object-cover" src="./public/images/homepage/ancestral%20gardens.png"/>
+                <img loading="lazy" decoding="async" alt="The palace's ancestral gardens, tended by local hands" data-media-slot="sustainability.ancestral-gardens" class="w-full h-full object-cover" src="./public/images/homepage/ancestral%20gardens.png"/>
             </div>
         </div>
 
@@ -405,10 +405,10 @@
             </div>
             <div class="grid grid-cols-2 gap-3">
                 <div class="aspect-[3/4] overflow-hidden">
-                    <img loading="lazy" decoding="async" alt="A peacock in the palace gardens" class="w-full h-full object-cover" src="./public/images/homepage/ancestral%20gardens.png"/>
+                    <img loading="lazy" decoding="async" alt="A peacock in the palace gardens" data-media-slot="sustainability.pet-peacock" class="w-full h-full object-cover" src="./public/images/homepage/ancestral%20gardens.png"/>
                 </div>
                 <div class="aspect-[3/4] overflow-hidden">
-                    <img loading="lazy" decoding="async" alt="A dog resting in the palace gardens" class="w-full h-full object-cover" src="./public/images/homepage/hawa%20mahal.png"/>
+                    <img loading="lazy" decoding="async" alt="A dog resting in the palace gardens" data-media-slot="sustainability.pet-dog" class="w-full h-full object-cover" src="./public/images/homepage/hawa%20mahal.png"/>
                 </div>
             </div>
         </div>
@@ -488,5 +488,7 @@ Jaipur 302004, Rajasthan, India
 </div>
 </footer>
 
+<script src="js/supabase-client.js"></script>
+<script src="js/media-loader.js"></script>
 </body>
 </html>

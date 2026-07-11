@@ -97,7 +97,7 @@
 }
 </script>
 </head>
-<body class="bg-background text-on-background font-body-md overflow-x-hidden nav-always-scrolled">
+<body class="bg-background text-on-background font-body-md overflow-x-hidden nav-always-scrolled" data-page="culinary">
     <!-- TopNavBar -->
     <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
         <nav class="flex justify-between items-center px-margin-desktop py-4 md:py-6 w-full gap-2">
@@ -135,6 +135,7 @@
                     playsinline
                     preload="auto"
                     poster="./public/images/homepage3.png"
+                    data-media-slot="culinary.hero"
                     class="absolute inset-0 w-full h-full object-cover">
 
                     <source src="./public/videos/stay-01.mp4" type="video/mp4">
@@ -158,7 +159,7 @@
             <div class="max-w-max-width mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 reveal-on-scroll">
                 <!-- Baradari Restaurant -->
                 <a href="baradari.html" class="md:col-span-7 group overflow-hidden relative aspect-[16/10] flex items-end reveal-on-scroll">
-                    <img loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg" alt="Baradari Restaurant"/>
+                    <img loading="lazy" decoding="async" data-media-slot="culinary.baradari-teaser" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg" alt="Baradari Restaurant"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="relative p-12 text-white">
                         <span class="font-label-caps text-label-caps mb-4 block">Signature Fine Dining</span>
@@ -169,7 +170,7 @@
                 </a>
                 <!-- La Brass Restaurant -->
                 <a href="la-brass.html" class="md:col-span-5 group overflow-hidden relative aspect-[4/5] flex items-end reveal-on-scroll">
-                    <img loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="mock aman images /imageye___-_imgi_252_Amanbagh%2C India - Main Building%2C Exterior Detail_0.jpg" alt="La Brass Restaurant"/>
+                    <img loading="lazy" decoding="async" data-media-slot="culinary.labrass-teaser" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="mock aman images /imageye___-_imgi_252_Amanbagh%2C India - Main Building%2C Exterior Detail_0.jpg" alt="La Brass Restaurant"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="relative p-12 text-white">
                         <span class="font-label-caps text-label-caps mb-4 block">All-Day Dining</span>
@@ -185,9 +186,9 @@
             <div class="max-w-max-width mx-auto px-margin-desktop flex flex-col md:flex-row items-center gap-20 reveal-on-scroll">
                 <div class="w-full md:w-1/2">
                     <div class="relative">
-                        <img loading="lazy" decoding="async" class="w-full h-auto" src="mock aman images /imgi_107_pool-pavilion.jpg" alt="Private Dining"/>
+                        <img loading="lazy" decoding="async" data-media-slot="culinary.private-dining" class="w-full h-auto" src="mock aman images /imgi_107_pool-pavilion.jpg" alt="Private Dining"/>
                         <div class="absolute -bottom-10 -right-10 hidden lg:block w-64 h-80 border-[0.5px] border-outline p-4 bg-surface translate-x-4 translate-y-4">
-                            <img loading="lazy" decoding="async" class="w-full h-full object-cover" src="mock aman images /imageye___-_imgi_260_22-11-Amanbagh-Amansanti-Musician-0621.jpg" alt="Heritage Dining Setup"/>
+                            <img loading="lazy" decoding="async" data-media-slot="culinary.heritage-dining-setup" class="w-full h-full object-cover" src="mock aman images /imageye___-_imgi_260_22-11-Amanbagh-Amansanti-Musician-0621.jpg" alt="Heritage Dining Setup"/>
                         </div>
                     </div>
                 </div>
@@ -234,7 +235,7 @@
                     <!-- Heritage Thali -->
                     <div class="group bg-surface-container-lowest p-10 border border-outline-variant/30 hover:border-primary/40 transition-all duration-500 reveal-on-scroll">
                         <div class="aspect-square mb-10 overflow-hidden">
-                            <img loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg" alt="Heritage Thali"/>
+                            <img loading="lazy" decoding="async" data-media-slot="culinary.heritage-thali" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg" alt="Heritage Thali"/>
                         </div>
                         <h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Heritage Thali</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">A grand collection of sixteen traditional recipes.</p>
@@ -243,7 +244,7 @@
                     <!-- Royal Court Cuisine -->
                     <div class="group bg-surface-container-lowest p-10 border border-outline-variant/30 hover:border-primary/40 transition-all duration-500 reveal-on-scroll">
                         <div class="aspect-square mb-10 overflow-hidden">
-                            <img loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg" alt="Royal Court Cuisine"/>
+                            <img loading="lazy" decoding="async" data-media-slot="culinary.royal-court-cuisine" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg" alt="Royal Court Cuisine"/>
                         </div>
                         <h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Royal Court Cuisine</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">Savor the opulent 'Laal Maas' and slow-cooked game.</p>
@@ -252,7 +253,7 @@
                     <!-- Global Classics -->
                     <div class="group bg-surface-container-lowest p-10 border border-outline-variant/30 hover:border-primary/40 transition-all duration-500 reveal-on-scroll">
                         <div class="aspect-square mb-10 overflow-hidden">
-                            <img loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="mock aman images /imageye___-_imgi_79_Amanbagh%2C India - Main Building%2C Exterior with Amansanti (1).jpg" alt="Global Classics"/>
+                            <img loading="lazy" decoding="async" data-media-slot="culinary.global-classics" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="mock aman images /imageye___-_imgi_79_Amanbagh%2C India - Main Building%2C Exterior with Amansanti (1).jpg" alt="Global Classics"/>
                         </div>
                         <h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Global Classics</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">International favorites prepared with artisanal local ingredients.</p>
@@ -454,5 +455,7 @@ Jaipur 302004, Rajasthan, India
     </script>
 
     <script src="js/main.js?v=10"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/media-loader.js"></script>
 </body>
 </html>

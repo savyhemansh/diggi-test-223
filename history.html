@@ -99,7 +99,7 @@
 }
 </script>
 </head>
-<body class="bg-surface text-on-surface font-body-md overflow-x-hidden nav-always-scrolled">
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden nav-always-scrolled" data-page="history">
 <!-- TopNavBar -->
 <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
 <nav class="flex justify-between items-center px-margin-desktop py-4 md:py-6 w-full gap-2">
@@ -140,6 +140,7 @@
             playsinline
             preload="auto"
             poster="./public/images/history/history-hero.png"
+            data-media-slot="history.hero"
             class="absolute inset-0 w-full h-full object-cover">
 
             <source src="./public/videos/stay-01.mp4" type="video/mp4">
@@ -178,7 +179,7 @@
         </div>
         <div class="md:col-span-6 md:col-start-7 reveal-on-scroll" style="transition-delay: 300ms;">
             <div class="relative aspect-[4/5] overflow-hidden img-hover-container">
-                <img loading="lazy" decoding="async" alt="Ornate details of the palace facade" class="w-full h-full object-cover" src="mock aman images /imgi_252_exterior-detail.jpg"/>
+                <img loading="lazy" decoding="async" alt="Ornate details of the palace facade" data-media-slot="history.genesis" class="w-full h-full object-cover" src="mock aman images /imgi_252_exterior-detail.jpg"/>
             </div>
         </div>
     </div>
@@ -206,13 +207,13 @@
             <div class="w-full max-w-3xl">
                 <div class="relative aspect-[16/10] overflow-hidden bg-surface-container-low">
                     <div class="era-img-item absolute inset-0 opacity-100 transition-opacity duration-700 ease-out">
-                        <img loading="lazy" decoding="async" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg" alt="Foundations Laid" class="w-full h-full object-cover">
+                        <img loading="lazy" decoding="async" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg" alt="Foundations Laid" data-media-slot="history.era-gallery" class="w-full h-full object-cover">
                     </div>
                     <div class="era-img-item absolute inset-0 opacity-0 transition-opacity duration-700 ease-out">
-                        <img loading="lazy" decoding="async" src="mock aman images /imageye___-_imgi_296_22-11-Amanbagh-Experience-Bhangarh-Yoga-1999.jpg" alt="A Gracious Welcome" class="w-full h-full object-cover">
+                        <img loading="lazy" decoding="async" src="mock aman images /imageye___-_imgi_296_22-11-Amanbagh-Experience-Bhangarh-Yoga-1999.jpg" alt="A Gracious Welcome" data-media-slot="history.era-gallery" class="w-full h-full object-cover">
                     </div>
                     <div class="era-img-item absolute inset-0 opacity-0 transition-opacity duration-700 ease-out">
-                        <img loading="lazy" decoding="async" src="mock aman images /imageye___-_imgi_168_Amanbagh-Experience-Bhangarh.jpg" alt="Living Heritage" class="w-full h-full object-cover">
+                        <img loading="lazy" decoding="async" src="mock aman images /imageye___-_imgi_168_Amanbagh-Experience-Bhangarh.jpg" alt="Living Heritage" data-media-slot="history.era-gallery" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -279,18 +280,18 @@
     <div class="px-margin-desktop max-w-max-width mx-auto">
         <div class="flex flex-col md:flex-row gap-8 mb-8">
             <div class="md:w-2/3 h-[350px] overflow-hidden reveal-on-scroll img-hover-container">
-                <img loading="lazy" decoding="async" alt="Panoramic view of the gardens" class="w-full h-full object-cover" src="./public/images/history/1.png"/>
+                <img loading="lazy" decoding="async" alt="Panoramic view of the gardens" data-media-slot="history.gallery-1" class="w-full h-full object-cover" src="./public/images/history/1.png"/>
             </div>
             <div class="md:w-1/3 h-[350px] overflow-hidden reveal-on-scroll img-hover-container" style="transition-delay: 200ms;">
-                <img loading="lazy" decoding="async" alt="Detailed stonework close-up" class="w-full h-full object-cover" src="./public/images/history/2.png"/>
+                <img loading="lazy" decoding="async" alt="Detailed stonework close-up" data-media-slot="history.gallery-2" class="w-full h-full object-cover" src="./public/images/history/2.png"/>
             </div>
         </div>
         <div class="flex flex-col md:flex-row-reverse gap-8">
             <div class="md:w-2/3 h-[350px] overflow-hidden reveal-on-scroll img-hover-container" style="transition-delay: 400ms;">
-                <img loading="lazy" decoding="async" alt="Atmospheric courtyard lighting" class="w-full h-full object-cover" src="./public/images/history/3.png"/>
+                <img loading="lazy" decoding="async" alt="Atmospheric courtyard lighting" data-media-slot="history.gallery-3" class="w-full h-full object-cover" src="./public/images/history/3.png"/>
             </div>
             <div class="md:w-1/3 h-[350px] overflow-hidden reveal-on-scroll img-hover-container" style="transition-delay: 600ms;">
-                <img loading="lazy" decoding="async" alt="Traditional arches architecture" class="w-full h-full object-cover" src="./public/images/history/4.png"/>
+                <img loading="lazy" decoding="async" alt="Traditional arches architecture" data-media-slot="history.gallery-4" class="w-full h-full object-cover" src="./public/images/history/4.png"/>
             </div>
         </div>
     </div>
@@ -368,5 +369,7 @@ Jaipur 302004, Rajasthan, India
 </div>
 </footer>
 
+<script src="js/supabase-client.js"></script>
+<script src="js/media-loader.js"></script>
 </body>
 </html>

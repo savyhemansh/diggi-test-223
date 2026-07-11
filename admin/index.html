@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Diggi Palace — Media Admin</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .thumb { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: #eee; }
+</style>
+</head>
+<body class="bg-neutral-100 text-neutral-900 min-h-screen">
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen" class="min-h-screen flex items-center justify-center hidden">
+  <form id="login-form" class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
+    <h1 class="text-xl font-semibold mb-1">Diggi Palace</h1>
+    <p class="text-sm text-neutral-500 mb-6">Media admin — sign in</p>
+    <label class="block text-sm mb-1">Email</label>
+    <input id="login-email" type="email" required class="w-full border rounded px-3 py-2 mb-4" />
+    <label class="block text-sm mb-1">Password</label>
+    <input id="login-password" type="password" required class="w-full border rounded px-3 py-2 mb-4" />
+    <p id="login-error" class="text-sm text-red-600 mb-4 hidden"></p>
+    <button class="w-full bg-neutral-900 text-white rounded px-3 py-2 hover:bg-neutral-700">Sign in</button>
+  </form>
+</div>
+
+<!-- APP -->
+<div id="app" class="hidden">
+  <header class="bg-white border-b px-6 py-4 flex items-center justify-between">
+    <h1 class="text-lg font-semibold">Diggi Palace — Media Admin</h1>
+    <button id="logout-btn" class="text-sm text-neutral-500 hover:text-neutral-900">Sign out</button>
+  </header>
+
+  <div class="flex" style="min-height: calc(100vh - 65px)">
+    <!-- PAGE LIST -->
+    <aside class="w-64 bg-white border-r p-4 overflow-y-auto">
+      <h2 class="text-xs font-semibold uppercase text-neutral-400 mb-3">Pages</h2>
+      <ul id="page-list" class="space-y-1"></ul>
+    </aside>
+
+    <!-- SLOT PANEL -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <div id="page-title" class="text-lg font-semibold mb-4"></div>
+      <div id="slots-container" class="space-y-6"></div>
+
+      <div class="mt-8 border-t pt-6">
+        <button id="new-slot-toggle" class="text-sm border rounded px-3 py-2 hover:bg-neutral-50">+ New Slot</button>
+        <form id="new-slot-form" class="hidden mt-4 bg-white border rounded p-4 space-y-3 max-w-md">
+          <div>
+            <label class="block text-sm mb-1">Section label</label>
+            <input id="new-slot-section" required class="w-full border rounded px-3 py-2" placeholder="e.g. Hero, Room Gallery" />
+          </div>
+          <div>
+            <label class="block text-sm mb-1">Slot key (unique id)</label>
+            <input id="new-slot-key" required class="w-full border rounded px-3 py-2" placeholder="e.g. stay.hero" />
+          </div>
+          <div class="flex items-center gap-4">
+            <label class="flex items-center gap-2 text-sm"><input id="new-slot-gallery" type="checkbox"/> Multiple images (gallery)</label>
+            <select id="new-slot-type" class="border rounded px-2 py-1 text-sm">
+              <option value="image">Image</option>
+              <option value="video">Video</option>
+            </select>
+          </div>
+          <div class="flex gap-2">
+            <button type="submit" class="bg-neutral-900 text-white rounded px-3 py-2 text-sm">Create Slot</button>
+            <button type="button" id="new-slot-cancel" class="text-sm text-neutral-500">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="../js/supabase-client.js"></script>
+<script>
+(function () {
+  const PAGES = [
+    'index','events','experiences','stay','contact','culinary','celebrations',
+    'history','sustainability','gallery','guest-love','blog','baradari','la-brass',
+    'palace-suite','courtyard-suite','heritage-deluxe','heritage-standard',
+    'privacy-policy','mockreservation'
+  ];
+
+  let currentPage = PAGES[0];
+
+  const loginScreen = document.getElementById('login-screen');
+  const app = document.getElementById('app');
+  const loginForm = document.getElementById('login-form');
+  const loginError = document.getElementById('login-error');
+
+  async function init() {
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (session) {
+      showApp();
+    } else {
+      loginScreen.classList.remove('hidden');
+    }
+  }
+
+  loginForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    loginError.classList.add('hidden');
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+    if (error) {
+      loginError.textContent = error.message;
+      loginError.classList.remove('hidden');
+      return;
+    }
+    showApp();
+  });
+
+  document.getElementById('logout-btn').addEventListener('click', async function () {
+    await supabaseClient.auth.signOut();
+    location.reload();
+  });
+
+  function showApp() {
+    loginScreen.classList.add('hidden');
+    app.classList.remove('hidden');
+    renderPageList();
+    loadPage(currentPage);
+  }
+
+  function renderPageList() {
+    const ul = document.getElementById('page-list');
+    ul.innerHTML = '';
+    PAGES.forEach(function (page) {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.textContent = page;
+      btn.className = 'w-full text-left px-3 py-2 rounded text-sm hover:bg-neutral-100' +
+        (page === currentPage ? ' bg-neutral-900 text-white hover:bg-neutral-900' : '');
+      btn.addEventListener('click', function () {
+        currentPage = page;
+        renderPageList();
+        loadPage(page);
+      });
+      li.appendChild(btn);
+      ul.appendChild(li);
+    });
+  }
+
+  async function loadPage(page) {
+    document.getElementById('page-title').textContent = page;
+    const container = document.getElementById('slots-container');
+    container.innerHTML = '<p class="text-sm text-neutral-400">Loading…</p>';
+
+    const { data: slots, error } = await supabaseClient
+      .from('media_slots')
+      .select('*')
+      .eq('page', page)
+      .order('section', { ascending: true });
+
+    if (error) {
+      container.innerHTML = '<p class="text-sm text-red-600">' + error.message + '</p>';
+      return;
+    }
+
+    if (!slots.length) {
+      container.innerHTML = '<p class="text-sm text-neutral-400">No slots yet for this page. Use "+ New Slot" below to add the first one.</p>';
+      return;
+    }
+
+    container.innerHTML = '';
+    for (const slot of slots) {
+      container.appendChild(await renderSlot(slot));
+    }
+  }
+
+  async function renderSlot(slot) {
+    const { data: items } = await supabaseClient
+      .from('media_items')
+      .select('*')
+      .eq('slot_id', slot.id)
+      .order('sort_order', { ascending: true });
+
+    const wrap = document.createElement('div');
+    wrap.className = 'bg-white border rounded p-4';
+
+    const header = document.createElement('div');
+    header.className = 'flex items-center justify-between mb-3';
+    header.innerHTML =
+      '<div><div class="font-medium">' + slot.section + '</div>' +
+      '<div class="text-xs text-neutral-400">' + slot.slot_key + ' · ' + (slot.is_gallery ? 'gallery' : 'single') + ' · ' + slot.media_type + '</div></div>';
+
+    const delSlotBtn = document.createElement('button');
+    delSlotBtn.textContent = 'Delete slot';
+    delSlotBtn.className = 'text-xs text-red-500 hover:text-red-700';
+    delSlotBtn.addEventListener('click', async function () {
+      if (!confirm('Delete slot "' + slot.section + '" and all its media? This cannot be undone.')) return;
+      await supabaseClient.from('media_slots').delete().eq('id', slot.id);
+      loadPage(currentPage);
+    });
+    header.appendChild(delSlotBtn);
+    wrap.appendChild(header);
+
+    const grid = document.createElement('div');
+    grid.className = 'grid grid-cols-3 md:grid-cols-6 gap-3 mb-3';
+    (items || []).forEach(function (item) {
+      grid.appendChild(renderThumb(item, slot));
+    });
+    wrap.appendChild(grid);
+
+    const uploadWrap = document.createElement('div');
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = slot.media_type === 'video' ? 'video/*' : 'image/*';
+    input.multiple = slot.is_gallery;
+    input.className = 'text-sm';
+    input.addEventListener('change', function () {
+      if (input.files.length) uploadFiles(slot, Array.from(input.files), (items || []).length);
+    });
+    uploadWrap.appendChild(input);
+    wrap.appendChild(uploadWrap);
+
+    const status = document.createElement('p');
+    status.className = 'text-xs text-neutral-400 mt-2 hidden';
+    status.id = 'status-' + slot.id;
+    wrap.appendChild(status);
+
+    return wrap;
+  }
+
+  function renderThumb(item, slot) {
+    const box = document.createElement('div');
+    box.className = 'relative group';
+
+    const media = slot.media_type === 'video'
+      ? Object.assign(document.createElement('video'), { src: item.public_url, className: 'thumb', muted: true })
+      : Object.assign(document.createElement('img'), { src: item.public_url, className: 'thumb', alt: item.alt || '' });
+    box.appendChild(media);
+
+    const delBtn = document.createElement('button');
+    delBtn.textContent = '×';
+    delBtn.className = 'absolute -top-2 -right-2 w-6 h-6 bg-red-600 text-white rounded-full text-sm leading-none hover:bg-red-700';
+    delBtn.addEventListener('click', async function () {
+      if (!confirm('Remove this image?')) return;
+      await supabaseClient.storage.from('site-media').remove([item.storage_path]);
+      await supabaseClient.from('media_items').delete().eq('id', item.id);
+      loadPage(currentPage);
+    });
+    box.appendChild(delBtn);
+
+    return box;
+  }
+
+  async function uploadFiles(slot, files, existingCount) {
+    const status = document.getElementById('status-' + slot.id);
+    status.classList.remove('hidden');
+    status.textContent = 'Uploading…';
+
+    try {
+      // Single-image slots: replace — remove existing items first.
+      if (!slot.is_gallery) {
+        const { data: existing } = await supabaseClient.from('media_items').select('*').eq('slot_id', slot.id);
+        for (const old of (existing || [])) {
+          await supabaseClient.storage.from('site-media').remove([old.storage_path]);
+          await supabaseClient.from('media_items').delete().eq('id', old.id);
+        }
+        existingCount = 0;
+      }
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const path = slot.page + '/' + slot.slot_key + '/' + Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+        const { error: uploadError } = await supabaseClient.storage.from('site-media').upload(path, file, { upsert: true });
+        if (uploadError) throw uploadError;
+        const { data: urlData } = supabaseClient.storage.from('site-media').getPublicUrl(path);
+        await supabaseClient.from('media_items').insert({
+          slot_id: slot.id,
+          storage_path: path,
+          public_url: urlData.publicUrl,
+          sort_order: existingCount + i,
+          alt: file.name
+        });
+      }
+      status.textContent = 'Done.';
+    } catch (err) {
+      status.textContent = 'Error: ' + err.message;
+    }
+    loadPage(currentPage);
+  }
+
+  // New slot form
+  const newSlotToggle = document.getElementById('new-slot-toggle');
+  const newSlotForm = document.getElementById('new-slot-form');
+  newSlotToggle.addEventListener('click', function () { newSlotForm.classList.toggle('hidden'); });
+  document.getElementById('new-slot-cancel').addEventListener('click', function () { newSlotForm.classList.add('hidden'); });
+
+  newSlotForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const section = document.getElementById('new-slot-section').value.trim();
+    const slotKey = document.getElementById('new-slot-key').value.trim();
+    const isGallery = document.getElementById('new-slot-gallery').checked;
+    const mediaType = document.getElementById('new-slot-type').value;
+    if (!section || !slotKey) return;
+
+    const { error } = await supabaseClient.from('media_slots').insert({
+      page: currentPage, section, slot_key: slotKey, is_gallery: isGallery, media_type: mediaType
+    });
+    if (error) { alert(error.message); return; }
+    newSlotForm.reset();
+    newSlotForm.classList.add('hidden');
+    loadPage(currentPage);
+  });
+
+  init();
+})();
+</script>
+</body>
+</html>

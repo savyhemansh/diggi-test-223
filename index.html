@@ -233,7 +233,7 @@
 }
 </script>
 </head>
-<body class="bg-background text-on-surface font-body-md selection:bg-primary/30">
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/30" data-page="index">
 <!-- TopNavBar -->
 <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
 <nav class="flex justify-between items-center px-margin-desktop py-4 md:py-6 w-full gap-2">
@@ -272,6 +272,7 @@
         playsinline
         preload="auto"
         poster="./public/images/homepage1.png"
+        data-media-slot="index.hero"
         class="absolute inset-0 w-full h-full object-cover" style="outline: none; display: block; border: none;">
 
         <source src="./public/videos/hero.mp4" type="video/mp4">
@@ -623,7 +624,7 @@ DISCOVER ALL EXPERIENCES
 
     <!-- Panel 1: The Restoration Ritual -->
     <div class="parallax-panel">
-        <img loading="lazy" decoding="async" alt="The Restoration Ritual" src="./public/images/homepage/thikana%20restoration.png"/>
+        <img loading="lazy" decoding="async" alt="The Restoration Ritual" data-media-slot="index.restoration-ritual" src="./public/images/homepage/thikana%20restoration.png"/>
         <div class="parallax-scrim"></div>
         <div class="parallax-caption" data-parallax>
             <h2 class="font-display-lg">The Restoration Ritual</h2>
@@ -631,12 +632,12 @@ DISCOVER ALL EXPERIENCES
         </div>
     </div>
 
-    <!-- Panel 2: The Pool -->
+    <!-- Panel 2: Pet-Friendly Stay -->
     <div class="parallax-panel">
-        <img loading="lazy" decoding="async" alt="The Pool" src="./public/images/homepage/ancestral%20gardens.png"/>
+        <img loading="lazy" decoding="async" alt="Pet-Friendly Stay" data-media-slot="index.pet-friendly" src="./public/images/homepage/ancestral%20gardens.png"/>
         <div class="parallax-scrim"></div>
         <div class="parallax-caption" data-parallax>
-            <h2 class="font-display-lg">The Pool</h2>
+            <h2 class="font-display-lg">Pet-Friendly Stay</h2>
             <a href="#" class="parallax-btn font-label-caps">Discover More</a>
         </div>
     </div>
@@ -719,11 +720,12 @@ DISCOVER ALL EXPERIENCES
 <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-8 leading-relaxed">
                 Receive letters from the palace — seasonal offers, festival updates, and exclusive subscriber-only packages.
 </p>
-<form class="flex flex-col md:flex-row gap-6 items-center max-w-xl mx-auto mb-6">
+<form id="newsletter-form" class="flex flex-col md:flex-row gap-6 items-center max-w-xl mx-auto mb-6">
 <label for="newsletter-email-index" class="sr-only">Email Address</label>
-<input id="newsletter-email-index" class="w-full bg-transparent border-b-2 border-outline-variant text-on-surface text-center py-6 focus:ring-0 focus:border-primary font-body-lg placeholder:text-on-surface-variant/30 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.16em]" placeholder="Your Email Address" type="email"/>
-<button class="bg-primary text-on-primary px-12 py-4 font-label-caps tracking-[0.2em] hover:bg-on-primary-fixed-variant transition-all whitespace-nowrap uppercase text-[11px]">Subscribe</button>
+<input id="newsletter-email-index" required class="w-full bg-transparent border-b-2 border-outline-variant text-on-surface text-center py-6 focus:ring-0 focus:border-primary font-body-lg placeholder:text-on-surface-variant/30 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.16em]" placeholder="Your Email Address" type="email"/>
+<button id="newsletter-submit" class="bg-primary text-on-primary px-12 py-4 font-label-caps tracking-[0.2em] hover:bg-on-primary-fixed-variant transition-all whitespace-nowrap uppercase text-[11px] disabled:opacity-50">Subscribe</button>
 </form>
+<p id="newsletter-status" class="font-label-caps text-[10px] tracking-widest uppercase hidden mb-2"></p>
 <p class="font-label-caps text-[9px] tracking-widest text-on-surface-variant/60 uppercase">Your details are kept private. Unsubscribe anytime.</p>
 </div>
 </section>
@@ -851,4 +853,39 @@ Jaipur 302004, Rajasthan, India
 </div>
 </footer>
 <script src="js/main.js?v=10"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/media-loader.js"></script>
+<script>
+(function () {
+    const form = document.getElementById('newsletter-form');
+    if (!form) return;
+    const emailInput = document.getElementById('newsletter-email-index');
+    const submitBtn = document.getElementById('newsletter-submit');
+    const status = document.getElementById('newsletter-status');
+
+    function showStatus(text, isError) {
+        status.textContent = text;
+        status.classList.remove('hidden', 'text-primary', 'text-red-600');
+        status.classList.add(isError ? 'text-red-600' : 'text-primary');
+    }
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const email = emailInput.value.trim();
+        if (!email) return;
+        submitBtn.disabled = true;
+        try {
+            const { error } = await supabaseClient.from('newsletter_subscribers').insert({ email });
+            if (error) throw error;
+            showStatus('Thank you — you are on the list.', false);
+            form.reset();
+        } catch (err) {
+            showStatus('Something went wrong. Please try again.', true);
+        } finally {
+            submitBtn.disabled = false;
+        }
+    });
+})();
+</script>
 </body></html>

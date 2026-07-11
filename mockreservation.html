@@ -77,7 +77,7 @@
 }
 </script>
 </head>
-<body class="parchment-texture">
+<body class="parchment-texture" data-page="mockreservation">
 <!-- TopNavBar -->
 <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
     <nav class="flex justify-between items-center px-margin-desktop py-4 md:py-6 w-full gap-2">
@@ -109,7 +109,7 @@
 <!-- Hero Section -->
 <section class="relative h-[60vh] flex flex-col justify-end overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img fetchpriority="high" alt="A cinematic low-angle shot of a grand sandstone palace courtyard at dusk with warm golden light" class="w-full h-full object-cover grayscale-[20%]" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg"/>
+<img fetchpriority="high" alt="A cinematic low-angle shot of a grand sandstone palace courtyard at dusk with warm golden light" data-media-slot="mockreservation.hero" class="w-full h-full object-cover grayscale-[20%]" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg"/>
 <div class="absolute inset-0 hero-gradient"></div>
 </div>
 <div class="relative z-10 px-margin-desktop max-w-max-width mx-auto w-full pb-20">
@@ -168,7 +168,7 @@
 <!-- Palace Suite -->
 <div class="group">
 <div class="aspect-[1.5] overflow-hidden mb-6 relative">
-<img loading="lazy" decoding="async" alt="An expansive opulent palace suite with vaulted ceilings and hand-painted frescoes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg"/>
+<img loading="lazy" decoding="async" alt="An expansive opulent palace suite with vaulted ceilings and hand-painted frescoes" data-media-slot="mockreservation.palace-suite" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg"/>
 <div class="absolute top-4 left-4 bg-primary-fixed/80 backdrop-blur px-4 py-1 font-label-caps text-[10px] tracking-widest text-on-primary-fixed">MOST POPULAR</div>
 </div>
 <div class="flex justify-between items-start mb-4">
@@ -192,7 +192,7 @@
 <!-- Courtyard Suite -->
 <div class="group">
 <div class="aspect-[1.5] overflow-hidden mb-6 relative">
-<img loading="lazy" decoding="async" alt="A serene courtyard suite with direct access to a private lush garden" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="mock aman images /imageye___-_imgi_79_Amanbagh%2C India - Main Building%2C Exterior with Amansanti (1).jpg"/>
+<img loading="lazy" decoding="async" alt="A serene courtyard suite with direct access to a private lush garden" data-media-slot="mockreservation.courtyard-suite" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="mock aman images /imageye___-_imgi_79_Amanbagh%2C India - Main Building%2C Exterior with Amansanti (1).jpg"/>
 </div>
 <div class="flex justify-between items-start mb-4">
 <div>
@@ -215,7 +215,7 @@
 <!-- Heritage Deluxe -->
 <div class="group">
 <div class="aspect-[1.5] overflow-hidden mb-6 relative">
-<img loading="lazy" decoding="async" alt="A beautifully restored heritage deluxe room with traditional Rajasthani architecture" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="mock aman images /imageye___-_imgi_216_Amanbagh-Amansanti-Rangoli.jpg"/>
+<img loading="lazy" decoding="async" alt="A beautifully restored heritage deluxe room with traditional Rajasthani architecture" data-media-slot="mockreservation.heritage-deluxe" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="mock aman images /imageye___-_imgi_216_Amanbagh-Amansanti-Rangoli.jpg"/>
 </div>
 <div class="flex justify-between items-start mb-4">
 <div>
@@ -347,4 +347,6 @@ Jaipur 302004, Rajasthan, India
             }
         });
     </script>
+<script src="js/supabase-client.js"></script>
+<script src="js/media-loader.js"></script>
 </body></html>

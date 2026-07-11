@@ -106,7 +106,7 @@
 }
 </script>
 </head>
-<body class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed overflow-x-hidden nav-always-scrolled">
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed overflow-x-hidden nav-always-scrolled" data-page="contact">
 <!-- TopNavBar -->
 <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
     <nav class="flex justify-between items-center px-margin-desktop py-4 md:py-6 w-full gap-2">
@@ -137,7 +137,7 @@
 <!-- Hero Header -->
 <header class="relative pt-[220px] pb-[80px] text-center px-margin-mobile overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img fetchpriority="high" alt="Diggi Palace heritage architecture" class="w-full h-full object-cover" src="./public/images/homepage1.png"/>
+<img fetchpriority="high" alt="Diggi Palace heritage architecture" data-media-slot="contact.hero" class="w-full h-full object-cover" src="./public/images/homepage1.png"/>
 <div class="absolute inset-0 bg-black/30"></div>
 </div>
 <div class="max-w-3xl mx-auto reveal-on-scroll active relative z-10">
@@ -222,12 +222,12 @@
 <p class="text-on-surface-variant italic">Let us orchestrate your visit to the heart of Rajasthan.</p>
 <div class="w-12 h-px bg-outline-variant mx-auto mt-8"></div>
 </div>
-<form class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 reveal-on-scroll">
+<form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 reveal-on-scroll">
 <!-- Enquiry Type -->
 <div class="flex flex-col gap-2">
 <label class="font-label-caps text-label-caps uppercase text-on-surface-variant">Enquiry type *</label>
-<select class="appearance-none bg-transparent border-0 border-b border-outline-variant py-3 font-body-md focus:ring-0 focus:border-primary transition-all">
-<option>- Select -</option>
+<select id="enquiry-type" required class="appearance-none bg-transparent border-0 border-b border-outline-variant py-3 font-body-md focus:ring-0 focus:border-primary transition-all">
+<option value="">- Select -</option>
 <option>Hotel reservation</option>
 <option>Experiences & Tours</option>
 <option>Dining reservation</option>
@@ -238,8 +238,8 @@
 <!-- Title -->
 <div class="flex flex-col gap-2">
 <label class="font-label-caps text-label-caps uppercase text-on-surface-variant">Title *</label>
-<select class="appearance-none bg-transparent border-0 border-b border-outline-variant py-3 font-body-md focus:ring-0 focus:border-primary transition-all">
-<option>- Select -</option>
+<select id="title" required class="appearance-none bg-transparent border-0 border-b border-outline-variant py-3 font-body-md focus:ring-0 focus:border-primary transition-all">
+<option value="">- Select -</option>
 <option>Mr.</option>
 <option>Mrs.</option>
 <option>Ms.</option>
@@ -250,17 +250,17 @@
 <!-- First Name -->
 <div class="flex flex-col gap-2">
 <label class="font-label-caps text-label-caps uppercase text-on-surface-variant">First name *</label>
-<input class="bg-transparent border-0 border-b border-outline-variant py-3 font-body-md placeholder:text-outline-variant focus:ring-0 focus:border-primary transition-all" placeholder="Enter your first name" type="text"/>
+<input id="first-name" required class="bg-transparent border-0 border-b border-outline-variant py-3 font-body-md placeholder:text-outline-variant focus:ring-0 focus:border-primary transition-all" placeholder="Enter your first name" type="text"/>
 </div>
 <!-- Last Name -->
 <div class="flex flex-col gap-2">
 <label class="font-label-caps text-label-caps uppercase text-on-surface-variant">Last name *</label>
-<input class="bg-transparent border-0 border-b border-outline-variant py-3 font-body-md placeholder:text-outline-variant focus:ring-0 focus:border-primary transition-all" placeholder="Enter your last name" type="text"/>
+<input id="last-name" required class="bg-transparent border-0 border-b border-outline-variant py-3 font-body-md placeholder:text-outline-variant focus:ring-0 focus:border-primary transition-all" placeholder="Enter your last name" type="text"/>
 </div>
 <!-- Email -->
 <div class="flex flex-col gap-2">
 <label class="font-label-caps text-label-caps uppercase text-on-surface-variant">Email *</label>
-<input class="bg-transparent border-0 border-b border-outline-variant py-3 font-body-md placeholder:text-outline-variant focus:ring-0 focus:border-primary transition-all" placeholder="email@address.com" type="email"/>
+<input id="email" required class="bg-transparent border-0 border-b border-outline-variant py-3 font-body-md placeholder:text-outline-variant focus:ring-0 focus:border-primary transition-all" placeholder="email@address.com" type="email"/>
 </div>
 <!-- Phone -->
 <div class="flex flex-col gap-2">
@@ -292,7 +292,7 @@
 <!-- Message -->
 <div class="md:col-span-2 flex flex-col gap-2">
 <label class="font-label-caps text-label-caps uppercase text-on-surface-variant">Message *</label>
-<textarea class="bg-transparent border-0 border-b border-outline-variant py-3 font-body-md placeholder:text-outline-variant focus:ring-0 focus:border-primary transition-all resize-none" placeholder="How can we assist you?" rows="4"></textarea>
+<textarea id="message" required class="bg-transparent border-0 border-b border-outline-variant py-3 font-body-md placeholder:text-outline-variant focus:ring-0 focus:border-primary transition-all resize-none" placeholder="How can we assist you?" rows="4"></textarea>
 </div>
 <!-- Consent -->
 <div class="md:col-span-2 flex items-start gap-4 py-6">
@@ -301,7 +301,8 @@
 </div>
 <!-- Submit -->
 <div class="md:col-span-2 pt-8">
-<button class="w-full md:w-64 bg-on-background text-background py-5 font-label-caps text-label-caps uppercase tracking-[0.2em] hover:bg-primary transition-all duration-300 active:scale-95" type="submit">
+<p id="contact-form-status" class="font-body-md text-[13px] mb-4 hidden"></p>
+<button id="contact-form-submit" class="w-full md:w-64 bg-on-background text-background py-5 font-label-caps text-label-caps uppercase tracking-[0.2em] hover:bg-primary transition-all duration-300 active:scale-95 disabled:opacity-50" type="submit">
                     Send Message
                 </button>
 </div>
@@ -937,5 +938,55 @@ Jaipur 302004, Rajasthan, India
             }
         }
     });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/media-loader.js"></script>
+<script>
+(function () {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const submitBtn = document.getElementById('contact-form-submit');
+    const status = document.getElementById('contact-form-status');
+
+    function showStatus(text, isError) {
+        status.textContent = text;
+        status.classList.remove('hidden', 'text-primary', 'text-red-600');
+        status.classList.add(isError ? 'text-red-600' : 'text-primary');
+    }
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const payload = {
+            enquiry_type: document.getElementById('enquiry-type').value,
+            title: document.getElementById('title').value,
+            first_name: document.getElementById('first-name').value.trim(),
+            last_name: document.getElementById('last-name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            phone: document.getElementById('phone').value.trim(),
+            country: document.getElementById('country-hidden-input').value,
+            message: document.getElementById('message').value.trim(),
+            wants_updates: document.getElementById('register').checked
+        };
+
+        if (!payload.enquiry_type || !payload.title || !payload.first_name || !payload.last_name || !payload.email || !payload.message) {
+            showStatus('Please fill in all required fields.', true);
+            return;
+        }
+
+        submitBtn.disabled = true;
+        try {
+            const { error } = await supabaseClient.from('contact_messages').insert(payload);
+            if (error) throw error;
+            showStatus('Thank you — your message has been sent. We will be in touch shortly.', false);
+            form.reset();
+        } catch (err) {
+            showStatus('Something went wrong. Please try again or call us directly.', true);
+        } finally {
+            submitBtn.disabled = false;
+        }
+    });
+})();
 </script>
 </body></html>

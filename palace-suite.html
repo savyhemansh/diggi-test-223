@@ -91,7 +91,7 @@
 }
 </script>
 </head>
-<body class="bg-surface text-on-surface font-body-md overflow-x-hidden selection:bg-primary/30">
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden selection:bg-primary/30" data-page="palace-suite">
 <!-- TopNavBar -->
 <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
     <nav class="flex justify-between items-center px-margin-desktop py-4 md:py-6 w-full gap-2">
@@ -124,7 +124,7 @@
     <!-- Cinematic Hero -->
     <section class="w-full h-[55vh] min-h-[400px] overflow-hidden relative">
         <div class="absolute inset-0 bg-black/30 z-10"></div>
-        <img fetchpriority="high" class="w-full h-full object-cover hero-zoom" alt="Regal Palace Suite interior bedroom" src="mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg"/>
+        <img fetchpriority="high" class="w-full h-full object-cover hero-zoom" alt="Regal Palace Suite interior bedroom" data-media-slot="palace-suite.hero" src="mock aman images /imageye___-_imgi_316_Amanbagh-Spa-Treatment.jpg"/>
         <div class="absolute bottom-12 right-margin-desktop z-20 text-white flex items-center gap-4 font-label-caps text-label-caps">
             <span>01 / 04</span>
             <div class="flex gap-2">
@@ -151,8 +151,8 @@
     <section class="max-w-max-width mx-auto px-margin-desktop grid md:grid-cols-12 gap-16 mb-12">
         <div class="md:col-span-8 flex flex-col gap-16">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-on-scroll">
-                <img loading="lazy" decoding="async" class="w-full aspect-[4/5] object-cover" alt="Balcony showing hand carved stone work" src="mock aman images /imageye___-_imgi_244_Amanbagh-Group-Portrait_0.jpg"/>
-                <img loading="lazy" decoding="async" class="w-full aspect-[4/5] object-cover" alt="Suite private lounge area" src="mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg"/>
+                <img loading="lazy" decoding="async" class="w-full aspect-[4/5] object-cover" alt="Balcony showing hand carved stone work" data-media-slot="palace-suite.balcony" src="mock aman images /imageye___-_imgi_244_Amanbagh-Group-Portrait_0.jpg"/>
+                <img loading="lazy" decoding="async" class="w-full aspect-[4/5] object-cover" alt="Suite private lounge area" data-media-slot="palace-suite.lounge" src="mock aman images /imageye___-_imgi_361_Amanbagh-Experience-Chhatri-Dinner-2111.jpg"/>
             </div>
             <div class="prose max-w-none reveal-on-scroll">
                 <h2 class="font-headline-md text-headline-md text-primary mb-6 font-ornamental">A Sovereign Sanctuary</h2>
@@ -261,7 +261,7 @@
                 <!-- Suite Card 1 -->
                 <a href="courtyard-suite.html" class="group cursor-pointer reveal-on-scroll">
                     <div class="overflow-hidden mb-6">
-                        <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" alt="Courtyard Suite" src="mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg"/>
+                        <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" alt="Courtyard Suite" data-media-slot="palace-suite.crosslink-courtyard" src="mock aman images /imageye___-_imgi_220_Amanbagh-Amansanti-Gardener_1.jpg"/>
                     </div>
                     <h3 class="font-headline-md text-headline-md text-on-surface mb-2 font-ornamental">Courtyard Suite</h3>
                     <p class="text-secondary text-sm mb-6 font-light">Situated near the historic heart of the palace, these suites offer a private courtyard and a sense of royal intimacy.</p>
@@ -270,7 +270,7 @@
                 <!-- Suite Card 2 -->
                 <a href="heritage-deluxe.html" class="group cursor-pointer reveal-on-scroll" style="transition-delay: 100ms;">
                     <div class="overflow-hidden mb-6">
-                        <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" alt="Heritage Deluxe room" src="mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg"/>
+                        <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" alt="Heritage Deluxe room" data-media-slot="palace-suite.crosslink-heritage-deluxe" src="mock aman images /imageye___-_imgi_98_Amanbagh-Bar-Detail-1745.jpg"/>
                     </div>
                     <h3 class="font-headline-md text-headline-md text-on-surface mb-2 font-ornamental">Heritage Deluxe</h3>
                     <p class="text-secondary text-sm mb-6 font-light">A perfect blend of heritage charm and contemporary comfort for the discerning traveler.</p>
@@ -279,7 +279,7 @@
                 <!-- Suite Card 3 -->
                 <a href="heritage-standard.html" class="group cursor-pointer reveal-on-scroll" style="transition-delay: 150ms;">
                     <div class="overflow-hidden mb-6">
-                        <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" alt="Heritage Standard room" src="mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg"/>
+                        <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" alt="Heritage Standard room" data-media-slot="palace-suite.crosslink-heritage-standard" src="mock aman images /imageye___-_imgi_288_Amanbagh-Amansanti-Jockey.jpg"/>
                     </div>
                     <h3 class="font-headline-md text-headline-md text-on-surface mb-2 font-ornamental">Heritage Standard</h3>
                     <p class="text-secondary text-sm mb-6 font-light">Authentic palace living in our classically appointed rooms overlooking the lush grounds.</p>
@@ -360,5 +360,7 @@ Jaipur 302004, Rajasthan, India
 
 </div>
 </footer>
+<script src="js/supabase-client.js"></script>
+<script src="js/media-loader.js"></script>
 </body>
 </html>

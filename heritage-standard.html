@@ -90,7 +90,7 @@
 }
 </script>
 </head>
-<body class="bg-surface text-on-surface font-body-md overflow-x-hidden selection:bg-primary/30">
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden selection:bg-primary/30" data-page="heritage-standard">
 <!-- TopNavBar -->
 <header id="top-nav" class="fixed top-0 w-full z-50 border-b border-transparent">
     <nav class="flex justify-between items-center px-margin-desktop py-4 md:py-6 w-full gap-2">
@@ -122,7 +122,7 @@
         <!-- Cinematic Hero -->
         <section class="w-full h-[55vh] min-h-[400px] overflow-hidden relative">
             <div class="absolute inset-0 bg-black/30 z-10"></div>
-            <img fetchpriority="high" class="w-full h-full object-cover hero-zoom" src="mock aman images /imageye___-_imgi_244_Amanbagh-Group-Portrait_0.jpg" alt="Heritage Standard Hero"/>
+            <img fetchpriority="high" class="w-full h-full object-cover hero-zoom" data-media-slot="heritage-standard.hero" src="mock aman images /imageye___-_imgi_244_Amanbagh-Group-Portrait_0.jpg" alt="Heritage Standard Hero"/>
             <div class="absolute bottom-12 right-margin-desktop z-20 text-white flex items-center gap-4 font-label-caps text-label-caps">
                 <span>01 / 04</span>
                 <div class="flex gap-2">
@@ -147,8 +147,8 @@
         <section class="max-w-max-width mx-auto px-margin-desktop grid md:grid-cols-12 gap-16 mb-12">
             <div class="md:col-span-8 flex flex-col gap-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <img loading="lazy" decoding="async" class="w-full aspect-[4/5] object-cover reveal-on-scroll" src="mock aman images /imageye___-_imgi_78_Amanbagh%2C India - Main Building%2C Pool View-2.jpg" alt="Heritage Standard Decor"/>
-                    <img loading="lazy" decoding="async" class="w-full aspect-[4/5] object-cover reveal-on-scroll" src="mock aman images /imageye___-_imgi_79_Amanbagh%2C India - Main Building%2C Exterior with Amansanti (1).jpg" alt="Heritage Standard Bathroom"/>
+                    <img loading="lazy" decoding="async" class="w-full aspect-[4/5] object-cover reveal-on-scroll" data-media-slot="heritage-standard.room-1" src="mock aman images /imageye___-_imgi_78_Amanbagh%2C India - Main Building%2C Pool View-2.jpg" alt="Heritage Standard Decor"/>
+                    <img loading="lazy" decoding="async" class="w-full aspect-[4/5] object-cover reveal-on-scroll" data-media-slot="heritage-standard.room-2" src="mock aman images /imageye___-_imgi_79_Amanbagh%2C India - Main Building%2C Exterior with Amansanti (1).jpg" alt="Heritage Standard Bathroom"/>
                 </div>
                 <div class="prose max-w-none reveal-on-scroll">
                     <h2 class="font-headline-md text-headline-md text-primary mb-6">Timeless Charm</h2>
@@ -251,7 +251,7 @@
                     <!-- Palace Suite -->
                     <a href="palace-suite.html" class="group cursor-pointer reveal-on-scroll">
                         <div class="overflow-hidden mb-6">
-                            <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg" alt="Palace Suite"/>
+                            <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" data-media-slot="heritage-standard.crosslink-palace-suite" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg" alt="Palace Suite"/>
                         </div>
                         <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Palace Suite</h3>
                         <p class="text-secondary text-sm mb-6">Regal opulence and contemporary luxury converge for an experience fit for royalty.</p>
@@ -260,7 +260,7 @@
                     <!-- Courtyard Suite -->
                     <a href="courtyard-suite.html" class="group cursor-pointer reveal-on-scroll">
                         <div class="overflow-hidden mb-6">
-                            <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" src="mock aman images /imageye___-_imgi_216_Amanbagh-Amansanti-Rangoli.jpg" alt="Courtyard Suite"/>
+                            <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" data-media-slot="heritage-standard.crosslink-courtyard-suite" src="mock aman images /imageye___-_imgi_216_Amanbagh-Amansanti-Rangoli.jpg" alt="Courtyard Suite"/>
                         </div>
                         <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Courtyard Suite</h3>
                         <p class="text-secondary text-sm mb-6">A haven of tranquillity featuring spacious living and a private outdoor oasis.</p>
@@ -269,7 +269,7 @@
                     <!-- Heritage Deluxe -->
                     <a href="heritage-deluxe.html" class="group cursor-pointer reveal-on-scroll">
                         <div class="overflow-hidden mb-6">
-                            <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg" alt="Heritage Deluxe"/>
+                            <img loading="lazy" decoding="async" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-110" data-media-slot="heritage-standard.crosslink-heritage-deluxe" src="mock aman images /imageye___-_imgi_88_Amanbagh-Amansanti-Musician.jpg" alt="Heritage Deluxe"/>
                         </div>
                         <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Heritage Deluxe</h3>
                         <p class="text-secondary text-sm mb-6">A perfect blend of heritage charm and modern sophistication in the heart of Jaipur.</p>
@@ -351,5 +351,7 @@ Jaipur 302004, Rajasthan, India
 </div>
 </footer>
     <script src="js/main.js?v=10"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/media-loader.js"></script>
 </body>
 </html>
